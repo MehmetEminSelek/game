@@ -1,7 +1,3 @@
-// Counter'ın try againde tekrar çalışması sırasında ki hata
-// oyun sayısının tutulup prediction'a start komutuyla beraber gönderilmesi gerekiyor
-// isimin tutulup prediction'a start komutuyla beraber gönderilmesi gerekiyor
-
 var pictures = [];
 const gameBoard = document.querySelector("#gameBoard");
 const centerBoard = document.getElementById("centerBoard");

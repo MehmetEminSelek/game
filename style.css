@@ -15,7 +15,7 @@ body {
 }
 
 .counter {
-    position: absolute;
+    position: flex;
     top: 0;
     left: 0;
     width: 100%;
@@ -27,20 +27,20 @@ body {
     font-size: 8rem;
     color: #fff;
     text-shadow: 0 0 10px #000;
-    animation: counter 1s forwards;
+    animation: counter 1s linear infinite;
 }
 
 #counter.big {
     display: none;
     font-family: 'Bungee Spice', cursive;
-    padding-top: 100%;
+    padding-top: 40%;
     text-size-adjust: 100%;
     text-align: center;
     align-items: center;
     justify-content: center;
-    font-size: 250px;
+    font-size: 150px;
     opacity: 0;
-    transition: all 0.7s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .bold {

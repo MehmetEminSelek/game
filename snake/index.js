@@ -23,7 +23,7 @@ const snakeColorDark = "#08300d";
 const snakeBorder = "black";
 const foodColor = "#ecb428";
 const unitSize = 25;
-const predictions = [];
+const moments = [];
 const timeArray = [];
 let gazerArray = [];
 var base_url = "http://64.225.94.117:8000";
@@ -33,7 +33,6 @@ let xVelocity = 15;
 let yVelocity = 0;
 let foodX;
 let foodY;
-var eaten = [];
 let score = 0;
 let xprediction = 0;
 let yprediction = 0;
@@ -45,10 +44,10 @@ let snake = [
     { x: 0, y: 0 }
 ];
 var experimentNo = 1;
-
 connect();
 
 function connect() {
+
     var socket = new SockJS(base_url + '/engine');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
@@ -57,12 +56,12 @@ function connect() {
     });
 }
 
-
-function sendValues(code) {
-    stompClient.send("/engine", {}, JSON.stringify({ 'sender': "engine", "message": code, "testSubjectName": textBox, "experimentNo": experimentNo }));
+function sendValues(code, moments) {
+    stompClient.send("/engine", {}, JSON.stringify({ 'sender': "engine", "message": code, "testSubjectName": textBox, "experimentNo": experimentNo, 'moments': moments }));
 }
 
 function counter() {
+
     sendValues("start");
     startContainer.style.display = "none";
     const counter = document.getElementById('counter');
@@ -77,10 +76,8 @@ function counter() {
         if (nextValue === -1) {
             gameStart();
             clearInterval(intervalID);
-
             return;
         }
-
         requestAnimationFrame(() => {
             counter.textContent = nextValue;
             counter.classList.remove('big');
@@ -92,7 +89,6 @@ function counter() {
     }, 1000)
 
 }
-
 
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", () => {
@@ -110,7 +106,6 @@ startCardBtn.addEventListener("click", () => {
     wrapper.style.display = "flex";
 });
 
-
 function drawGame() {
     gameboardContainer.style.display = "none";
     startContainer.style.display = "none";
@@ -119,6 +114,7 @@ function drawGame() {
 }
 
 function gameStart() {
+    moments[0] = "running"
     running = true;
     scoreText.textContent = score;
     createFood();
@@ -161,9 +157,8 @@ function createFood() {
 function drawFood() {
     ctx.fillStyle = foodColor;
     ctx.fillRect(foodX, foodY, unitSize, unitSize);
-
-
 };
+
 function moveSnake() {
     const head = {
         x: snake[0].x + xVelocity,
@@ -171,11 +166,10 @@ function moveSnake() {
     };
 
     snake.unshift(head);
-    //if food is eaten
     if (snake[0].x == foodX && snake[0].y == foodY) {
         score += 1;
         scoreText.textContent = score;
-        eaten[0] = 1;
+        moments[0] = "eaten";
         capture();
         createFood();
     }
@@ -185,6 +179,7 @@ function moveSnake() {
 };
 
 function drawSnake() {
+
     var count = 2;
     snake.forEach(snakePart => {
         if (count % 2 == 0) {
@@ -233,8 +228,8 @@ function changeDirection(event) {
     }
 };
 
-
 function checkGameOver() {
+
     switch (true) {
         case (snake[0].x < 0):
             running = false;
@@ -257,6 +252,8 @@ function checkGameOver() {
 };
 
 function displayGameOver() {
+
+    moments[0] = "gameover";
     sendValues("stop");
     document.getElementById("counter").style.display = "none";
     running = false;
@@ -264,6 +261,7 @@ function displayGameOver() {
     gameboardContainer.style.display = "inline";
     startContainer.style.display = "none";
     resetContainer.style.display = "grid";
+
 };
 
 function resetGame() {
@@ -287,11 +285,11 @@ var canvasPromise = html2canvas(document.body, {
 
 function capture() {
     setInterval(async function () {
+
         await canvasPromise.then((canvas) => {
             var base64image = canvas.toDataURL("image/png");
             base64image.crossOrigin = "anonymous"
             pictures.push(base64image);
-            eaten[0] = 0;
         });
     }, 1000);
 }
@@ -299,13 +297,12 @@ function capture() {
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
+
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
         milliseconds = parseInt(timer % 1000, 10);
-
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
-
         console.log(minutes + ":" + seconds + ":" + milliseconds);
 
         if (--timer < 0) {

@@ -73,7 +73,7 @@ function counter() {
         if (nextValue == 0) {
             counter.innerHTML = "GO!";
         }
-        if (nextValue === -1) {
+        if (nextValue === 0) {
             gameStart();
             clearInterval(intervalID);
             return;
@@ -92,6 +92,8 @@ function counter() {
 
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", () => {
+    resetGame();
+    resetContainer.style.display = "none";
     counter();
 });
 startSnakeBtn.addEventListener("click", () => {
@@ -120,7 +122,6 @@ function gameStart() {
     createFood();
     drawGame();
     drawFood();
-    capture();
     nextTick();
 };
 
@@ -129,8 +130,8 @@ function nextTick() {
         setTimeout(() => {
             clearBoard();
             drawFood();
-            moveSnake();
             drawSnake();
+            moveSnake();
             checkGameOver();
             nextTick();
         }, 75);

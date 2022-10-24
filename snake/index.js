@@ -251,6 +251,9 @@ function checkGameOver() {
 
 function displayGameOver() {
     lifeCount--;
+    if (lifeCount == 0) {
+        sendValues("engine", "save");
+    }
     sendValues("engine", "stop");
     document.getElementById("counter").style.display = "none";
     running = false;

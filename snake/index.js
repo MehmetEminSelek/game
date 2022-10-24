@@ -44,6 +44,7 @@ let snake = [
     { x: 0, y: 0 }
 ];
 var experimentNo = 1;
+var lifeCount = 3;
 connect();
 
 function connect() {
@@ -56,12 +57,11 @@ function connect() {
     });
 }
 
-function sendValues(code, moments) {
-    stompClient.send("/engine", {}, JSON.stringify({ 'sender': "engine", "message": code, "testSubjectName": textBox, "experimentNo": experimentNo, 'moments': moments }));
+function sendValues(code) {
+    stompClient.send("/engine", {}, JSON.stringify({ 'sender': "engine", "message": code, "testSubjectName": textBox, "experimentNo": experimentNo }));
 }
 
 function counter() {
-
     sendValues("start");
     startContainer.style.display = "none";
     const counter = document.getElementById('counter');
@@ -253,9 +253,12 @@ function checkGameOver() {
 };
 
 function displayGameOver() {
-
+    lifeCount--;
     moments[0] = "gameover";
     sendValues("stop");
+    if (lifeCount == 0) {
+        sendValues(0);
+    }
     document.getElementById("counter").style.display = "none";
     running = false;
     gameBoard.style.display = "none";

@@ -23,7 +23,6 @@ const snakeColorDark = "#08300d";
 const snakeBorder = "black";
 const foodColor = "#ecb428";
 const unitSize = 25;
-const moments = [];
 const timeArray = [];
 let gazerArray = [];
 var base_url = "http://64.225.94.117:8000";
@@ -48,7 +47,6 @@ var lifeCount = 3;
 connect();
 
 function connect() {
-
     var socket = new SockJS(base_url + '/engine');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
@@ -57,12 +55,12 @@ function connect() {
     });
 }
 
-function sendValues(code) {
-    stompClient.send("/engine", {}, JSON.stringify({ 'sender': "engine", "message": code, "testSubjectName": textBox, "experimentNo": experimentNo }));
+function sendValues(sender, code) {
+    stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code, "testSubjectName": textBox, "experimentNo": experimentNo }));
 }
 
 function counter() {
-    sendValues("start");
+    sendValues("engine", "start");
     startContainer.style.display = "none";
     const counter = document.getElementById('counter');
     counter.style.display = "block";
@@ -116,7 +114,6 @@ function drawGame() {
 }
 
 function gameStart() {
-    moments[0] = "running"
     running = true;
     scoreText.textContent = score;
     createFood();
@@ -170,7 +167,7 @@ function moveSnake() {
     if (snake[0].x == foodX && snake[0].y == foodY) {
         score += 1;
         scoreText.textContent = score;
-        moments[0] = "eaten";
+        sendValues("data", "eaten");
         capture();
         createFood();
     }
@@ -254,18 +251,13 @@ function checkGameOver() {
 
 function displayGameOver() {
     lifeCount--;
-    moments[0] = "gameover";
-    sendValues("stop");
-    if (lifeCount == 0) {
-        sendValues(0);
-    }
+    sendValues("engine", "stop");
     document.getElementById("counter").style.display = "none";
     running = false;
     gameBoard.style.display = "none";
     gameboardContainer.style.display = "inline";
     startContainer.style.display = "none";
     resetContainer.style.display = "grid";
-
 };
 
 function resetGame() {

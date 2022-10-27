@@ -25,8 +25,8 @@ const foodColor = "#ecb428";
 const unitSize = 25;
 const timeArray = [];
 let gazerArray = [];
-//const base_url = "http://64.225.94.117:8000";
-const base_url = "http://192.168.1.107:8000";
+const base_url = "http://64.225.94.117:8000";
+//const base_url = "http://192.168.1.107:8000";
 let running = false;
 let xVelocity = 15;
 let yVelocity = 0;
@@ -190,6 +190,7 @@ function drawSnake() {
             ctx.fillStyle = snakeColorHead;
         }
         ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
+        ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
         count++;
     })
 };

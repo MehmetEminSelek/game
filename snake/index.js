@@ -92,7 +92,6 @@ window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", () => {
     resetGame();
     resetContainer.style.display = "none";
-    counter();
 });
 startSnakeBtn.addEventListener("click", () => {
     counter();
@@ -285,7 +284,6 @@ var canvasPromise = html2canvas(document.body, {
 
 function capture() {
     setInterval(async function () {
-
         await canvasPromise.then((canvas) => {
             var base64image = canvas.toDataURL("image/png");
             base64image.crossOrigin = "anonymous"

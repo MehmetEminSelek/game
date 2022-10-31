@@ -255,6 +255,7 @@ function checkGameOver() {
 };
 
 function displayGameOver() {
+    xVelocity+= 5;
     lifeCount--;
     if (lifeCount == 0) {
         sendValues("engine", "save");

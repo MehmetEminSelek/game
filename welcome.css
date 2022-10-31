@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #dfe1eb;
+}
+
+.bodyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}
+
+.appbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #25316D;
+}
+
+.appbar>h1 {
+    margin-left: 20px;
+    font-family: "Oswald";
+    color: rgb(255, 251, 245);
+}
+
+.tryButton {
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 100vw;
+    font-size: 13px;
+    border-color: #5F6F94;
+    color: rgb(255, 254, 252);
+    text-decoration: none;
+}
+
+.appbar>.tryButton {
+    margin-right: 20px;
+    padding: 10px 20px 10px 20px;
+}
+
+.tryButton:hover {
+    border-color: #97D2EC;
+    background-color: #97d2ec5d;
+    cursor: pointer;
+}
+
+.banner {
+    width: 60%;
+}
+
+.banner>h1 {
+    text-align: center;
+    font-size: 50px;
+    font-style: normal;
+    font-family: 'Oswald';
+    color: #25316D;
+}
+
+.banner>h2 {
+    font-size: 25px;
+    font-style: normal;
+    color: #25316D;
+    font-family: 'Oswald';
+    text-align: center;
+}
+
+.banner>p {
+    text-align: center;
+    font-size: 15px;
+}
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner>.buttonContainer>.tryButton {
+    margin: 20px 0px 0px 0px;
+    text-align: center;
+    font-size: 15px;
+    background-color: #25316D;
+    padding: 15px 60px 15px 60px;
+}

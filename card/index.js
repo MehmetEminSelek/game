@@ -43,6 +43,7 @@ function matchCards(img1, img2) {
     if (img1 === img2) {
         matchedCard++;
         if (matchedCard == 6 && timeLeft > 0) {
+            location.href = "http://127.0.0.1:5502/form/index.html"
             return clearInterval(timer);
         }
         cardOne.removeEventListener("click", flipCard);

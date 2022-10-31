@@ -59,8 +59,13 @@ function sendValues(sender, code) {
     stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code, "testSubjectName": textBox, "experimentNo": experimentNo }));
 }
 
+
+
+function route(){
+    location.href = "http://127.0.0.1:5500/WebGazer/www/calibration.html"
+}
+
 function counter() {
-    sendValues("engine", "start");
     startContainer.style.display = "none";
     const counter = document.getElementById('counter');
     counter.style.display = "block";

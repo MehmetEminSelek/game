@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub</title>
+    <link href='https://fonts.googleapis.com/css?family=Bungee+Spice' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+</head>
+
+<body>
+    <div timer id="timer" class=timer></div>
+    <div id="gameContainer">
+        <div id="centerBoard">
+            <canvas id="gameBoard" width="500" height="500"></canvas>
+            <div class="wrapper">
+                <ul class="cards">
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-1.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-2.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-3.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-4.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-5.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-6.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-5.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-6.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-1.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-2.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-3.png" alt="card-img">
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="view front-view">
+                            <img src="/card/images/que_icon.svg" alt="icon">
+                        </div>
+                        <div class="view back-view">
+                            <img src="/card/images/img-4.png" alt="card-img">
+                        </div>
+                    </li>
+                    <div id="details" class="details">
+                        <p class="time">Time: <span><b>20</b>s</span></p>
+                        <p class="flips">Flips: <span><b>0</b></span></p>
+                        <button>Refresh</button>
+                    </div>
+                </ul>
+            </div>
+            <div id="gameboardContainer">
+                <div id="counter" class="big">10</div>
+                <div id="startContainer">
+                    <div id="gridHeader">
+                        <p>GAME HUB</p>
+                    </div>
+                    <div id="gridInstructions">
+                        <textarea id="textBox" class="buttons text" placeholder="Type Your Name"></textarea>
+                    </div>
+                    <div id="gridBody">
+                        <button class="buttons play snakeGameBtn" id="startSnakeBtn">NEXT</button>
+                    </div>
+                </div>
+                <div id="resetContainer">
+                    <div id="gridHeader">
+                        <p id="resetBoard">Snake 2D</p>
+                    </div>
+                    <div id="gridScoreEmotions">
+                        <p><span id="scoreText" class="bold">0</span></p>
+                    </div>
+                    <div id="gridBody">
+                        <button id="resetBtn" class="buttons reset">Try Again!</button>
+                        <button id="dataBtn" class="buttons reset">Excel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <canvas id="webCanvas" width="360" height="240">Canvas not supported</canvas>
+    </div>
+    <div id="loading">
+        <div class="lds-dual-ring"></div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+<script src="/webgazer.js"></script>
+<script src="/html2canvas.js"></script>
+<script src="/snake/index.js"></script>
+<script src="/card/index.js"></script>
+
+
+
+</html>

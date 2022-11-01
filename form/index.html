@@ -1,63 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"></script>
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Survey</title>
 </head>
+
 <body>
-    <div class="mx-0 mx-sm-auto">
-        <div class="card">
-          <div class="card-header bg-primary">
-            <h5 class="card-title text-white mt-2" id="exampleModalLabel"></h5>
-          </div>
-          <div class="modal-body">
-            <div class="text-center">
-              <i class="far fa-file-alt fa-4x mb-3 text-primary"></i>
-            </div>
-      
-            <hr />
-            <form class="px-4" action="">
-                <!-- Message input -->
-                <p>ASDASDASDSA</p>
-                <div class="form-outline mb-4">
-                  <textarea class="form-control" id="A1" rows="4" placeholder="Type your answer"></textarea>
-                  <label class="form-label" for="A1"></label>
-                </div>
-              </form>
-              <form class="px-4" action="">
-                <!-- Message input -->
-                <p>ASDASDASDSA</p>
-                <div class="form-outline mb-4">
-                  <textarea class="form-control" id="A2" rows="4" placeholder="Type your answer"></textarea>
-                  <label class="form-label" for="A2"></label>
-                </div>
-              </form>
-              <form class="px-4" action="">
-                <!-- Message input -->
-                <p>ASDASDASDSA</p>
-                <div class="form-outline mb-4">
-                  <textarea class="form-control" id="A3" rows="4" placeholder="Type your answer"></textarea>
-                  <label class="form-label" for="A3"></label>
-                </div>
-              </form>
-              <form class="px-4" action="">
-                <!-- Message input -->
-                <p>ASDASDASDSA</p>
-                <div class="form-outline mb-4">
-                  <textarea class="form-control" id="A4" rows="4" placeholder="Type your answer"></textarea>
-                  <label class="form-label" for="A4"></label>
-                </div>
-              </form>
-          </div>
-          <div class="card-footer text-end">
-            <button id="submitButton" type="button" class="btn btn-primary">Submit</button>
-          </div>
+  <div class="board">
+    <div class="grid1">
+      <div class="card">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. </p>
+        <textarea class="answer" rows="5" placeholder="Type your answer"></textarea>
+      </div>
+      <div class="card">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. </p>
+        <textarea class="answer" rows="5" placeholder="Type your answer"></textarea>
+      </div>
+      <div class="card">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. </p>
+        <textarea class="answer" rows="5" placeholder="Type your answer"></textarea>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="table">
+        <div class="tableRow">
+          <fieldset class="group" id="group1">
+            <p class="question">Interested</p>
+            <input class="inputs" type="radio" value="a" name="group1">
+            <p class="inputText a">Very Slightly or Not At All</p>
+            <input class="inputs" type="radio" value="b" name="group1">
+            <p class="inputText b">A Little</p>
+            <input class="inputs" type="radio" value="c" name="group1">
+            <p class="inputText c">Moderately</p>
+            <input class="inputs" type="radio" value="d" name="group1">
+            <p class="inputText d">Quite A Bit</p>
+            <input class="inputs" type="radio" value="e" name="group1">
+            <p class="inputText e">Extremely</p>
+          </fieldset>
+        </div>
+        <div class="tableRow">
+          <fieldset class="group" id="group2">
+            <p class="question">Distressed</p>
+            <input class="inputs" type="radio" value="a" name="group2">
+            <p class="inputText a">Very Slightly or Not At All</p>
+            <input class="inputs" type="radio" value="b" name="group2">
+            <p class="inputText b">A Little</p>
+            <input class="inputs" type="radio" value="c" name="group2">
+            <p class="inputText c">Moderately</p>
+            <input class="inputs" type="radio" value="d" name="group2">
+            <p class="inputText d">Quite A Bit</p>
+            <input class="inputs" type="radio" value="e" name="group2">
+            <p class="inputText e">Extremely</p>
+          </fieldset>
+        </div>
+        <div class="tableRow">
+          <fieldset class="group" id="group3">
+            <p class="question">Excited</p>
+            <input class="inputs" type="radio" value="a" name="group3">
+            <p class="inputText a">Very Slightly or Not At All</p>
+            <input class="inputs" type="radio" value="b" name="group3">
+            <p class="inputText b">A Little</p>
+            <input class="inputs" type="radio" value="c" name="group3">
+            <p class="inputText c">Moderately</p>
+            <input class="inputs" type="radio" value="d" name="group3">
+            <p class="inputText d">Quite A Bit</p>
+            <input class="inputs" type="radio" value="e" name="group3">
+            <p class="inputText e">Extremely</p>
+          </fieldset>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="submit">SAVE</div>
 </body>
 <script src="index.js"></script>
-<script src="/snake/index.js"></script>
+
 </html>

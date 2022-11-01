@@ -61,7 +61,7 @@ function sendValues(sender, code) {
 
 
 
-function route(){
+function route() {
     location.href = "http://127.0.0.1:5500/WebGazer/www/calibration.html"
 }
 
@@ -255,7 +255,7 @@ function checkGameOver() {
 };
 
 function displayGameOver() {
-    xVelocity+= 5;
+    xVelocity += 5;
     lifeCount--;
     if (lifeCount == 0) {
         sendValues("engine", "save");

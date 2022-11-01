@@ -8,7 +8,7 @@
     <title>Game Hub</title>
     <link href='https://fonts.googleapis.com/css?family=Bungee+Spice' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="/style.css" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
 </head>
@@ -18,116 +18,11 @@
     <div id="gameContainer">
         <div id="centerBoard">
             <canvas id="gameBoard" width="500" height="500"></canvas>
-            <div class="wrapper">
-                <ul class="cards">
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-1.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-2.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-3.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-4.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-5.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-6.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-5.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-6.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-1.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-2.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-3.png" alt="card-img">
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="view front-view">
-                            <img src="/card/images/que_icon.svg" alt="icon">
-                        </div>
-                        <div class="view back-view">
-                            <img src="/card/images/img-4.png" alt="card-img">
-                        </div>
-                    </li>
-                    <div id="details" class="details">
-                        <p class="time">Time: <span><b>20</b>s</span></p>
-                        <p class="flips">Flips: <span><b>0</b></span></p>
-                        <button>Refresh</button>
-                    </div>
-                </ul>
-            </div>
             <div id="gameboardContainer">
                 <div id="counter" class="big">10</div>
                 <div id="startContainer">
                     <div id="gridHeader">
-                        <p>GAME HUB</p>
+                        <p>SNAKE 2D</p>
                     </div>
                     <div id="gridInstructions">
                         <textarea id="textBox" class="buttons text" placeholder="Type Your Name"></textarea>
@@ -147,7 +42,6 @@
                     </div>
                     <div id="gridBody">
                         <button id="resetBtn" class="buttons reset">Try Again!</button>
-                        <button id="dataBtn" class="buttons reset">Excel</button>
                     </div>
                 </div>
             </div>

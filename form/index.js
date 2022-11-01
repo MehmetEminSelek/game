@@ -1,20 +1,24 @@
 var form = [];
 
-function next(){
-    location.href = "http://127.0.0.1:5502/index.html"
+function toCard() {
+    let form = saveForm(form);
 }
 
-function game(){
+function game() {
     counter();
 }
 
-document.querySelector("#submitButton").addEventListener("click", function(){
+function toSnake() {
+    location.href = "http://127.0.0.1:5502/snake/index.html"
+}
+
+document.querySelector("#submitButton").addEventListener("click", function () {
     saveForm(form);
     console.log(form);
     next();
 });
 
-function saveForm(form){
+function saveForm(form) {
     let A1 = document.getElementById("A1").value
     let A2 = document.getElementById("A2").value
     let A3 = document.getElementById("A3").value
@@ -26,5 +30,5 @@ function saveForm(form){
         "Answer3": A3,
         "Answer4": A4
     }
-    return form;  
+    return form;
 }

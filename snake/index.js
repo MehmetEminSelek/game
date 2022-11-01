@@ -102,13 +102,6 @@ startSnakeBtn.addEventListener("click", () => {
     counter();
 });
 
-startCardBtn.addEventListener("click", () => {
-
-    gameboardContainer.style.display = "none";
-    startContainer.style.display = "none";
-    resetContainer.style.display = "none";
-    wrapper.style.display = "flex";
-});
 
 function drawGame() {
     gameboardContainer.style.display = "none";

@@ -3,20 +3,29 @@ const cards = document.querySelectorAll(".card"),
     flipsTag = document.querySelector(".flips b"),
     refreshBtn = document.querySelector(".details button");
 
-let maxTime = 60;
+let maxTime = 5;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
 let disableDeck = false;
 let isPlaying = false;
 let cardOne, cardTwo, timer;
+let lifeCount = 3;
 
 function initTimer() {
     if (timeLeft <= 0) {
+        lifeCount--;
         return clearInterval(timer);
     }
     timeLeft--;
     timeTag.innerText = timeLeft;
+
+}
+
+function checkLife() {
+    if (lifeCount == 0) {
+        location.href = "http://127.0.0.1:5502/form/index.html"
+    }
 }
 
 function flipCard({ target: clickedCard }) {
@@ -43,7 +52,7 @@ function matchCards(img1, img2) {
     if (img1 === img2) {
         matchedCard++;
         if (matchedCard == 6 && timeLeft > 0) {
-            location.href = "http://127.0.0.1:5502/form/index.html"
+            lifeCount--;
             return clearInterval(timer);
         }
         cardOne.removeEventListener("click", flipCard);
@@ -66,6 +75,8 @@ function matchCards(img1, img2) {
 }
 
 function shuffleCard() {
+    checkLife();
+    console.log(lifeCount);
     timeLeft = maxTime;
     flips = matchedCard = 0;
     cardOne = cardTwo = "";

@@ -8,10 +8,6 @@ function game() {
     counter();
 }
 
-function toSnake() {
-    location.href = "http://127.0.0.1:5502/snake/index.html"
-}
-
 document.querySelector("#submitButton").addEventListener("click", function () {
     saveForm(form);
     console.log(form);

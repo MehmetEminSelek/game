@@ -247,10 +247,16 @@ function checkGameOver() {
     }
 };
 
+function gameName(){
+    gname = "Card";
+    return gname;
+}
+
 function displayGameOver() {
     xVelocity += 5;
     lifeCount--;
     if (lifeCount == 0) {
+        gameName();
         sendValues("engine", "save");
         location.href = "http://127.0.0.1:5502/form/index.html";
     }

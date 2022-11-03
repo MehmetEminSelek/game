@@ -3,6 +3,6 @@
     "html2canvas": "^1.4.1"
   },
   "scripts": {
-    "start": "index.js"
+    "start": "index.html"
   }
 }

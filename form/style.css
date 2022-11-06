@@ -16,6 +16,7 @@ body {
 }
 
 .grid2 {
+    position: relative;
     padding: 30px;
 }
 
@@ -68,7 +69,7 @@ body {
     font-weight: bold;
     margin-right: 10px;
 }
-
+/* 
 .e {
     color: rgb(0, 161, 0);
 }
@@ -87,7 +88,7 @@ body {
 
 .a {
     color: rgb(182, 12, 0);
-}
+} */
 
 .submit {
     position: sticky;

@@ -1,0 +1,25 @@
+WELCOME-
+
+Gentile partecipante, chiediamo la tua disponibilità a prendere parte a un progetto di ricerca del VirtHuLab, dell'Università degli studi di Firenze, Dipartimento di Formazione, Lingue, Intercultura, Letterature e Psicologia. L' attività prevista sarà la somministrazione di alcuni questionari e la somministrazione di alcune prove tramite computer. Saranno sempre garantiti la tua privacy e il tuo anonimato. I dati, collettivamente raccolti, saranno soggetti ad elaborazione statistica solo in forma aggregata e anonima. In altri termini non sarà in nessun caso possibile risalire all'identità del rispondente allo studio, una volta che la risposta è stata inviata o consegnata. I dati personali verranno conservati in un apposito archivio solo per il tempo necessario al conseguimento delle finalità per le quali sono stati raccolti o per qualsiasi altra legittima finalità ad essi collegata. Il periodo di conservazione dei dati non supererà in ogni caso i 2 anni. Il Trattamento e la protezione dei dati personali sono regolamentati ai sensi del D.Lgs.n.101/18. e ai sensi del Regolamento UE 2016/679. Si precisa che - come da Decreti del Direttore Generale n. 2003/2017 e 580/2018 - il Titolare del trattamento è l’Università degli Studi di Firenze e si individua come Referente per la protezione dei dati, la direttrice del Dipartimento di Formazione, Lingue, Intercultura, Letterature e Psicologia (FORLILPSI) Vanna Boffo (vanna.boffo@unifi.it). Per qualsiasi dubbio è possibile rivolgersi al Dr. Andrea Guazzini (andrea.guazzini@unifi.it). Ti ricordiamo che la tua partecipazione a questa ricerca è completamente volontaria e sarai libero/a di ritirati in qualsiasi momento. Cliccando “Acconsento” dichiari di: (1) essere stato/a informato/a ai sensi del D.Lgs.n.101/18, e ai sensi del Regolamento UE 2016/679 sulla tutela delle persone e di altri soggetti rispetto al trattamento dei dati personali circa le modalità e le finalità del trattamento cui essi saranno sottoposti e circa la natura facoltativa del trasferimento di tali dati; (2) di acconsentire, ai sensi del D.Lgs.n.101/18 del Regolamento UE 2016/679, a che tali dati vengano registrati e che, in forma anonima, vengano sottoposti ai promotori dello studio per essere esaminati, ai soli fini e nei limiti previsti dalla legge della citata Autorizzazione; (3) acconsentire inoltre che essi vengano analizzati ed archiviati in forma anonima e distrutti dopo al massimo 2 anni dalla raccolta.
+
+GAME TRIAL
+
+FIRS
+Prima di proseguire con l'esperimento, è necessario completare la fase di vestizione della sensoristica. Chiama lo sperimentatore quando sei pronto.
+
+Quando la procedura è stata completata, premi su "HO FATTO".
+
+SECOND
+ESEMPIO ISTRUZIONI CALIBRAZIONE EYETRACKING
+Quando ti sentirai pronto, entrerai nella sessione di allenamento del sistema di eyetracking. Si tratta di una procedura molto delicata e che può risultare stancante se non effettuata in modo efficace; per questo ti chiediamo gentilmente di prestare molta attenzione, seguendo puntualmente queste istruzioni. Prima di iniziare la sessione di allentamento, assicurati che il tuo viso sia precisamente all'interno del quadrato che troverai in alto a sinistra: prenditi tutto il tempo che ti serve per completare questa operazione. Nella sessione di allentamento, troverai uno schermo bianco in cui saranno presenti alcuni puntini colorati leggermente di giallo; rimanendo il più fermo possibile con il corpo, e soprattutto con la testa, dovrai muovere il mouse, clickando ognuno di questi più volte finché il colore del puntino non diventerà rosso. Per allenare l'eytracking dovrai fare molta attenzione che la tua pupilla segua sempre molto precisamente il cursore del tuo mouse, soprattutto quando effettuerai i clicks sui puntini: sarà infatti in quel momento che il sistema abbinerà il tuo sguardo alla rispettiva posizione sullo schermo; è consigliato di esagerare i movimenti oculari passando da un puntino all'altro, così che il sistema possa più facilmente distinguere una posizione da un'altra. Ancora una volta, è molto importante non modificare mai la posizione del corpo e soprattutto della testa: è consigliato cercare una posizione comoda da mantenere nel tempo per tutta la durata della sessione sperimentale. Quando avrai cliccato tutti i puntini, ne apparirà uno verde al centro (nella stessa posizione dell'ultimo): a quel punto dovrai rimanere immobile e fissarlo senza fare nient'altro. Il sistema valuterà il livello di accuratezza raggiunto e farà proseguire alla fase successiva solo se questa supererà il 75%.
+
+
+Questo livello è sufficiente per assicurare una buona performance, ben fatto! Per procedere alla fase successiva dell'esperimento, premi il bottone in basso.
+
+KAFA SABİTLEME
+
+Se richiesto, dai il permesso ad accedere alla webcam,
+
+posiziona il tuo viso al centro del quadrato sottostante e
+
+quando il quadrato diventa verde premi la barra spaziatrice!

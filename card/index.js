@@ -22,8 +22,13 @@ function initTimer() {
 
 }
 
+function gameName(){
+    gname = "End";
+    return gname;
+}
 function checkLife() {
     if (lifeCount == 0) {
+        gameName();
         location.href = "http://127.0.0.1:5502/form/index.html"
     }
 }
@@ -74,6 +79,8 @@ function matchCards(img1, img2) {
     }, 1200);
 }
 
+
+
 function shuffleCard() {
     checkLife();
     console.log(lifeCount);
@@ -100,7 +107,10 @@ function shuffleCard() {
 
 shuffleCard();
 
-refreshBtn.addEventListener("click", shuffleCard);
+refreshBtn.addEventListener("click" , function () {
+    lifeCount--;
+    shuffleCard();   
+});
 
 cards.forEach(card => {
     card.addEventListener("click", flipCard);

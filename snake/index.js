@@ -77,7 +77,7 @@ function counter() {
             counter.innerHTML = "GO!";
         }
         if (nextValue === 0) {
-            gameStart();
+            resetGame();
             clearInterval(intervalID);
             return;
         }
@@ -100,6 +100,7 @@ resetBtn.addEventListener("click", () => {
 });
 startSnakeBtn.addEventListener("click", () => {
     counter();
+
 });
 
 

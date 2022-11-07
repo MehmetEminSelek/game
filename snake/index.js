@@ -62,7 +62,7 @@ function sendValues(sender, code) {
 
 
 function route() {
-    location.href = "http://127.0.0.1:5500/WebGazer/www/calibration.html"
+    location.href = "http://164.92.186.163/WebGazer/www/calibration.html"
 }
 
 function counter() {
@@ -256,7 +256,7 @@ function displayGameOver() {
     lifeCount--;
     if (lifeCount == 0) {
         sendValues("engine", "save");
-        location.href = "http://127.0.0.1:5502/form/index.html";
+        location.href = "http://161.35.209.66/form/index.html";
     }
     sendValues("engine", "stop");
     document.getElementById("counter").style.display = "none";

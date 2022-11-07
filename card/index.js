@@ -46,7 +46,7 @@ function checkLife() {
     sendValues("engine", "stop");
     if (lifeCount == 0) {
         sendValues("engine", "save");
-        location.href = "http://127.0.0.1:5502/form/index.html"
+        location.href = "http://161.35.209.66/form/index.html"
     }
 }
 

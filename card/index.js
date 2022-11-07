@@ -12,6 +12,23 @@ let isPlaying = false;
 let cardOne, cardTwo, timer;
 let lifeCount = 3;
 
+
+connect();
+
+function connect() {
+    var socket = new SockJS(base_url + '/engine');
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function (frame) {
+        stompClient.subscribe('/engine-listen', function (message) {
+        });
+    });
+}
+
+function sendValues(sender, code) {
+    stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code, "testSubjectName": textBox, "experimentNo": experimentNo }));
+}
+
+
 function initTimer() {
     if (timeLeft <= 0) {
         lifeCount--;
@@ -22,13 +39,11 @@ function initTimer() {
 
 }
 
-function gameName(){
-    gname = "End";
-    return gname;
-}
+
 function checkLife() {
+    sendValues("engine", "stop");
     if (lifeCount == 0) {
-        gameName();
+        sendValues("engine", "save");
         location.href = "http://127.0.0.1:5502/form/index.html"
     }
 }
@@ -82,6 +97,7 @@ function matchCards(img1, img2) {
 
 
 function shuffleCard() {
+    sendValues("engine", "start");
     checkLife();
     console.log(lifeCount);
     timeLeft = maxTime;

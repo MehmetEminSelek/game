@@ -15,7 +15,6 @@ let lifeCount = 3;
 const base_url = "http://138.68.109.132:8000";
 //const base_url = "http://192.168.1.107:8000";
 
-connect();
 
 function connect() {
     var socket = new SockJS(base_url + '/engine');
@@ -27,27 +26,26 @@ function connect() {
 }
 
 function sendValues(sender, code) {
-    stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code, "testSubjectName": textBox, "experimentNo": experimentNo }));
+    stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code }));
 }
 
+async function gameStart () {
+    await connect();
+    
+    await shuffleCard();
+
+}
+
+connect();
+document.getElementById("refresh").style.display = "none";
 
 function initTimer() {
     if (timeLeft <= 0) {
-        lifeCount--;
+        document.getElementById("refresh").style.display = "block";
         return clearInterval(timer);
     }
     timeLeft--;
     timeTag.innerText = timeLeft;
-
-}
-
-
-function checkLife() {
-    sendValues("engine", "stop");
-    if (lifeCount == 0) {
-        sendValues("engine", "save");
-        location.href = "http://161.35.209.66/form/index.html"
-    }
 }
 
 function flipCard({ target: clickedCard }) {
@@ -74,7 +72,6 @@ function matchCards(img1, img2) {
     if (img1 === img2) {
         matchedCard++;
         if (matchedCard == 6 && timeLeft > 0) {
-            lifeCount--;
             return clearInterval(timer);
         }
         cardOne.removeEventListener("click", flipCard);
@@ -98,10 +95,9 @@ function matchCards(img1, img2) {
 
 
 
-function shuffleCard() {
+function shuffleCard() { 
     sendValues("engine", "start");
-    checkLife();
-    console.log(lifeCount);
+    document.getElementById("refresh").style.display = "none";
     timeLeft = maxTime;
     flips = matchedCard = 0;
     cardOne = cardTwo = "";
@@ -121,13 +117,27 @@ function shuffleCard() {
         }, 500);
         card.addEventListener("click", flipCard);
     });
+    
 }
 
-shuffleCard();
 
-refreshBtn.addEventListener("click" , function () {
+refreshBtn.addEventListener("click", function () {
     lifeCount--;
-    shuffleCard();   
+    console.log(lifeCount);
+    // if (lifeCount == 1) {
+    //     document.getElementById("refresh").innerHTML = "Next";
+    // }
+    if (lifeCount == 0) {
+        refreshBtn.textContent = "Next";
+        refreshBtn.addEventListener("click", function () {
+            sendValues("engine", "save");
+            location.href = "http://161.35.209.66/form/index.html"
+        });
+    }
+    else if (lifeCount != 0) {
+        shuffleCard();
+    }
+
 });
 
 cards.forEach(card => {
@@ -165,4 +175,3 @@ function countdown(minutes, seconds) {
     }
     tick();
 }
-

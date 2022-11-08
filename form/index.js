@@ -4,6 +4,10 @@ var snakeURL = "http://161.35.209.66/snake/index.html"
 var cardURL = "http://161.35.209.66/card/index.html"
 var endURL = "http://161.35.209.66/index.html"
 
+if (document.referrer == "http://127.0.0.1:5500/") {
+    document.getElementById("selectGame").style.display = "none";
+}
+
 function toCard() {
     location.href = cardURL;
     form = saveForm(form);
@@ -15,7 +19,7 @@ function toSnake() {
     form = saveForm(form);
 }
 
-function toEnd(){
+function toEnd() {
     location.href = endURL;
     form = saveForm(form);
 }
@@ -38,10 +42,10 @@ document.querySelector("#submitButton").addEventListener("click", function () {
     //     toSnake();
     // }
 
-    if(document.getElementById('card').checked == true) {   
-        toSnake();   
-    } else if(document.getElementById('snake').checked == true) { 
-        toCard(); 
+    if (document.getElementById('card').checked == true) {
+        toSnake();
+    } else if (document.getElementById('snake').checked == true) {
+        toCard();
     }
     else {
         toSnake();

@@ -12,7 +12,7 @@ let isPlaying = false;
 let cardOne, cardTwo, timer;
 let lifeCount = 3;
 
-const base_url = "http://138.68.109.132:8000";
+const base_url = "https://138.68.109.132:8000";
 //const base_url = "http://192.168.1.107:8000";
 
 

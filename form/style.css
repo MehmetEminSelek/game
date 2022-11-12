@@ -12,6 +12,7 @@ body {
 }
 
 .grid1 {
+    transition: all 1s ease;
     padding: 30px;
 }
 
@@ -27,6 +28,17 @@ body {
     background: rgb(240, 240, 240);
     border-radius: 10px;
 }
+
+.select {
+    width: 100%;
+    row-gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 1s ease;
+
+}
+
+
 
 .answer {
     min-width: 100%;
@@ -110,3 +122,4 @@ body {
 .submit:hover {
     background-color: rgb(0, 110, 6);
 }
+

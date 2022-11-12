@@ -8,6 +8,10 @@ if (document.referrer == "http://164.92.186.163/") {
     document.getElementById("selectGame").style.display = "none";
 }
 
+if (document.referrer == "http://161.35.209.66/card/index.html") {
+    document.getElementById("selectGame").style.display = "none";
+}
+
 function toCard() {
     location.href = cardURL;
     form = saveForm(form);
@@ -42,7 +46,7 @@ document.querySelector("#submitButton").addEventListener("click", function () {
     //     toSnake();
     // }
 
-    if (document.getElementById('card').checked == true) {
+    if (document.getElementById('card').checked == true) {    
         toEnd();
     } else if (document.getElementById('snake').checked == true) {
         toCard();

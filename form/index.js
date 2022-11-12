@@ -4,7 +4,7 @@ var snakeURL = "http://161.35.209.66/snake/index.html"
 var cardURL = "http://161.35.209.66/card/index.html"
 var endURL = "http://161.35.209.66/index.html"
 
-if (document.referrer == "http://127.0.0.1:5500/") {
+if (document.referrer == "http://164.92.186.163/") {
     document.getElementById("selectGame").style.display = "none";
 }
 
@@ -43,7 +43,7 @@ document.querySelector("#submitButton").addEventListener("click", function () {
     // }
 
     if (document.getElementById('card').checked == true) {
-        toSnake();
+        toEnd();
     } else if (document.getElementById('snake').checked == true) {
         toCard();
     }

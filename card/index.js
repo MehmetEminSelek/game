@@ -12,7 +12,7 @@ let isPlaying = false;
 let cardOne, cardTwo, timer;
 let lifeCount = 3;
 
-const base_url = "http://134.122.68.223:8000";
+const base_url = "http://164.92.205.27:8000";
 //const base_url = "http://192.168.1.107:8000";
 
 
@@ -29,19 +29,17 @@ function sendValues(sender, code) {
     stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code }));
 }
 
-async function gameStart () {
-    await connect();
-    
-    await shuffleCard();
 
-}
+
 
 connect();
+
 document.getElementById("refresh").style.display = "none";
 
 function initTimer() {
     if (timeLeft <= 0) {
         document.getElementById("refresh").style.display = "block";
+        sendValues("engine", "stop");
         return clearInterval(timer);
     }
     timeLeft--;
@@ -51,10 +49,12 @@ function initTimer() {
 function flipCard({ target: clickedCard }) {
     if (!isPlaying) {
         isPlaying = true;
+        sendValues("engine", "start");
         timer = setInterval(initTimer, 1000);
     }
     if (clickedCard !== cardOne && !disableDeck && timeLeft > 0) {
         flips++;
+        sendValues("engine", "flips");
         flipsTag.innerText = flips;
         clickedCard.classList.add("flip");
         if (!cardOne) {
@@ -72,6 +72,7 @@ function matchCards(img1, img2) {
     if (img1 === img2) {
         matchedCard++;
         if (matchedCard == 6 && timeLeft > 0) {
+            sendValues("engine", "stop");
             return clearInterval(timer);
         }
         cardOne.removeEventListener("click", flipCard);

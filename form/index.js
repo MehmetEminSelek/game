@@ -43,7 +43,7 @@ document.querySelector("#submitButton").addEventListener("click", function () {
     // }
 
     if (document.getElementById('card').checked == true) {
-        toSnake();
+        toEnd();
     } else if (document.getElementById('snake').checked == true) {
         toCard();
     }

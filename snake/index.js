@@ -13,7 +13,7 @@ const startCardBtn = document.querySelector("#startCardBtn");
 const wrapper = document.querySelector(".wrapper");
 const dataBtn = document.querySelector("#dataBtn");
 const submitBtn = document.querySelector("#submitBtn");
-const textBox = document.querySelector("#textBox").value;
+const textBox = document.querySelector("#textBox");
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
 const boardBackground = "#D8D8D8";
@@ -24,8 +24,7 @@ const snakeBorder = "black";
 const foodColor = "#ecb428";
 const unitSize = 25;
 const timeArray = [];
-let gazerArray = [];
-const base_url = "http://138.68.109.132:8000";
+const base_url = "http://164.92.205.27:8000";
 //const base_url = "http://192.168.1.107:8000";
 let running = false;
 let xVelocity = 15;
@@ -44,6 +43,7 @@ let snake = [
 ];
 var experimentNo = 1;
 var lifeCount = 3;
+var subjectName = "";
 connect();
 
 function connect() {
@@ -56,9 +56,8 @@ function connect() {
 }
 
 function sendValues(sender, code) {
-    stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code, "testSubjectName": textBox, "experimentNo": experimentNo }));
+    stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code, "testSubjectName": subjectName, "experimentNo": experimentNo }));
 }
-
 
 
 function route() {
@@ -100,6 +99,7 @@ resetBtn.addEventListener("click", () => {
     resetContainer.style.display = "none";
 });
 startSnakeBtn.addEventListener("click", () => {
+    subjectName = textBox.value;
     sendValues("engine", "start");
     counter();
 
@@ -144,20 +144,26 @@ function clearBoard() {
 };
 
 function createFood() {
+
+    sendValues("data", "eaten");
     function randomFood(min, max) {
         const randNum = Math.round((Math.random() * (max - min) + min) / unitSize) * unitSize;
         return randNum;
     }
     foodX = randomFood(0, gameWidth - unitSize);
     foodY = randomFood(0, gameWidth - unitSize);
+
 };
 
 function drawFood() {
+
     ctx.fillStyle = foodColor;
     ctx.fillRect(foodX, foodY, unitSize, unitSize);
+
 };
 
 function moveSnake() {
+
     const head = {
         x: snake[0].x + xVelocity,
         y: snake[0].y + yVelocity
@@ -167,8 +173,6 @@ function moveSnake() {
     if (snake[0].x == foodX && snake[0].y == foodY) {
         score += 1;
         scoreText.textContent = score;
-        sendValues("data", "eaten");
-        capture();
         createFood();
     }
     else {
@@ -196,6 +200,7 @@ function drawSnake() {
 };
 
 function changeDirection(event) {
+
     const keyPressed = event.keyCode;
     const LEFT = 37;
     const UP = 38;
@@ -250,14 +255,16 @@ function checkGameOver() {
     }
 };
 
-
 function displayGameOver() {
+
+    experimentNo++;
     xVelocity += 5;
     lifeCount--;
     if (lifeCount == 0) {
         sendValues("engine", "save");
         location.href = "http://161.35.209.66/form/index.html";
     }
+    sendValues("data", "gameOver");
     sendValues("engine", "stop");
     document.getElementById("counter").style.display = "none";
     running = false;
@@ -265,9 +272,11 @@ function displayGameOver() {
     gameboardContainer.style.display = "inline";
     startContainer.style.display = "none";
     resetContainer.style.display = "grid";
+
 };
 
 function resetGame() {
+
     score = 0;
     xVelocity = unitSize;
     yVelocity = 0;
@@ -279,36 +288,37 @@ function resetGame() {
         { x: 0, y: 0 }
     ];
     gameStart();
+
 };
 
-var canvasPromise = html2canvas(document.body, {
-    allowTaint: true,
-    useCORS: true
-});
+// var canvasPromise = html2canvas(document.body, {
+//     allowTaint: true,
+//     useCORS: true
+// });
 
-function capture() {
-    setInterval(async function () {
-        await canvasPromise.then((canvas) => {
-            var base64image = canvas.toDataURL("image/png");
-            base64image.crossOrigin = "anonymous"
-            pictures.push(base64image);
-        });
-    }, 1000);
-}
+// function capture() {
+//     setInterval(async function () {
+//         await canvasPromise.then((canvas) => {
+//             var base64image = canvas.toDataURL("image/png");
+//             base64image.crossOrigin = "anonymous"
+//             pictures.push(base64image);
+//         });
+//     }, 1000);
+// }
 
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
+// function startTimer(duration, display) {
+//     var timer = duration, minutes, seconds;
+//     setInterval(function () {
 
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
-        milliseconds = parseInt(timer % 1000, 10);
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        console.log(minutes + ":" + seconds + ":" + milliseconds);
+//         minutes = parseInt(timer / 60, 10)
+//         seconds = parseInt(timer % 60, 10);
+//         milliseconds = parseInt(timer % 1000, 10);
+//         minutes = minutes < 10 ? "0" + minutes : minutes;
+//         seconds = seconds < 10 ? "0" + seconds : seconds;
+//         console.log(minutes + ":" + seconds + ":" + milliseconds);
 
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
+//         if (--timer < 0) {
+//             timer = duration;
+//         }
+//     }, 1000);
+// }

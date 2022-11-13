@@ -28,7 +28,7 @@ function toEnd() {
     form = saveForm(form);
 }
 
-var gameName = document.getElementById("gameName").value;
+
 
 
 
@@ -46,7 +46,7 @@ document.querySelector("#submitButton").addEventListener("click", function () {
     //     toSnake();
     // }
 
-    if (document.getElementById('card').checked == true) {    
+    if (document.getElementById('card').checked == true) {
         toEnd();
     } else if (document.getElementById('snake').checked == true) {
         toCard();

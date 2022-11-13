@@ -60,10 +60,6 @@ function sendValues(sender, code) {
 }
 
 
-function route() {
-    location.href = "http://164.92.186.163/WebGazer/www/calibration.html"
-}
-
 function counter() {
     startContainer.style.display = "none";
     const counter = document.getElementById('counter');

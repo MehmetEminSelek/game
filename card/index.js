@@ -11,9 +11,12 @@ let disableDeck = false;
 let isPlaying = false;
 let cardOne, cardTwo, timer;
 let lifeCount = 3;
+var subjectName;
+var experimentNo = 1;
 
 const base_url = "http://164.92.205.27:8000";
 //const base_url = "http://192.168.1.107:8000";
+
 
 
 function connect() {
@@ -26,10 +29,8 @@ function connect() {
 }
 
 function sendValues(sender, code) {
-    stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code }));
+    stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code, "testSubjectName": subjectName, "experimentNo": experimentNo }));
 }
-
-
 
 
 connect();
@@ -73,6 +74,7 @@ function matchCards(img1, img2) {
         matchedCard++;
         if (matchedCard == 6 && timeLeft > 0) {
             sendValues("engine", "stop");
+            experimentNo++;
             return clearInterval(timer);
         }
         cardOne.removeEventListener("click", flipCard);
@@ -96,7 +98,7 @@ function matchCards(img1, img2) {
 
 
 
-function shuffleCard() { 
+function shuffleCard() {
     sendValues("engine", "start");
     document.getElementById("refresh").style.display = "none";
     timeLeft = maxTime;
@@ -118,7 +120,7 @@ function shuffleCard() {
         }, 500);
         card.addEventListener("click", flipCard);
     });
-    
+
 }
 
 

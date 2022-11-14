@@ -68,9 +68,7 @@ function counter() {
 
     const intervalID = setInterval(() => {
         const nextValue = --value;
-        if (nextValue == 0) {
-            counter.innerHTML = "GO!";
-        }
+
         if (nextValue === 0) {
             resetGame();
             clearInterval(intervalID);

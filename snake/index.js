@@ -44,12 +44,13 @@ let snake = [
 var experimentNo = 1;
 var lifeCount = 3;
 var subjectName = "";
+
 connect();
 
-function connect() {
+async function connect() {
     var socket = new SockJS(base_url + '/engine');
     stompClient = Stomp.over(socket);
-    stompClient.connect({}, function (frame) {
+    await stompClient.connect({}, function (frame) {
         stompClient.subscribe('/engine-listen', function (message) {
         });
     });

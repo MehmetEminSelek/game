@@ -28,7 +28,7 @@
 !/www/media/video/demo.mp4
 *.cpuprofile
 dist/
-node_modules/
+node_modules
 www/node_modules/
 www/data/src/WebGazerETRA2018Dataset_Release20180420/
 www/data/src/P*/

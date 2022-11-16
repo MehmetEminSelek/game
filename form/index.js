@@ -4,7 +4,7 @@ var snakeURL = "https://wafer-game.com/snake/index.html"
 var cardURL = "https://wafer-game.com/card/index.html"
 var endURL = "https://wafer-game.com/index.html"
 
-if (document.referrer == "http://164.92.186.163/") {
+if (document.referrer == "https://wafer-experiment.com/") {
     document.getElementById("selectGame").style.display = "none";
 }
 

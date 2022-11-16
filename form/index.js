@@ -1,14 +1,14 @@
 var form = [];
 
-var snakeURL = "https://wafer-game.online/snake/index.html"
-var cardURL = "https://wafer-game.online/card/index.html"
-var endURL = "https://wafer-game.online/index.html"
+var snakeURL = "https://wafer-game.com/snake/index.html"
+var cardURL = "https://wafer-game.com/card/index.html"
+var endURL = "https://wafer-game.com/index.html"
 
 if (document.referrer == "http://164.92.186.163/") {
     document.getElementById("selectGame").style.display = "none";
 }
 
-if (document.referrer == "https://wafer-game.online/card/index.html") {
+if (document.referrer == "https://wafer-game.com/card/index.html") {
     document.getElementById("selectGame").style.display = "none";
 }
 

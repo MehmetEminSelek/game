@@ -14,7 +14,7 @@ let lifeCount = 3;
 var subjectName;
 var experimentNo = 1;
 
-const base_url = "https://wafer-backend.com:8000";
+const base_url = "https://wafer-backend.com:443";
 //const base_url = "http://192.168.1.107:8000";
 
 

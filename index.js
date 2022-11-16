@@ -1,4 +1,4 @@
 
 document.getElementById("survey").addEventListener("click", function () {
-    location.href = "http://161.35.209.66/form/index.html"
+    location.href = "https://wafer-game.online/form/index.html"
 });

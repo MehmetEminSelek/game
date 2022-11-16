@@ -14,7 +14,7 @@ let lifeCount = 3;
 var subjectName;
 var experimentNo = 1;
 
-const base_url = "http://164.92.205.27:8000";
+const base_url = "https://wafer-backend.online:8000";
 //const base_url = "http://192.168.1.107:8000";
 
 
@@ -134,7 +134,7 @@ refreshBtn.addEventListener("click", function () {
         refreshBtn.textContent = "Next";
         refreshBtn.addEventListener("click", function () {
             sendValues("engine", "save");
-            location.href = "http://161.35.209.66/form/index.html"
+            location.href = "https://wafer-game.online/form/index.html"
         });
     }
     else if (lifeCount != 0) {

@@ -55,7 +55,7 @@ function flipCard({ target: clickedCard }) {
     }
     if (clickedCard !== cardOne && !disableDeck && timeLeft > 0) {
         flips++;
-        sendValues("engine", "flips");
+        sendValues("data", "flips");
         flipsTag.innerText = flips;
         clickedCard.classList.add("flip");
         if (!cardOne) {
@@ -72,6 +72,7 @@ function flipCard({ target: clickedCard }) {
 function matchCards(img1, img2) {
     if (img1 === img2) {
         matchedCard++;
+        sendValues("data", "success");
         if (matchedCard == 6 && timeLeft > 0) {
             sendValues("engine", "stop");
             experimentNo++;

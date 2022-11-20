@@ -46,6 +46,8 @@ var lifeCount = 3;
 var subjectName = "";
 
 connect();
+waiting();
+
 
 async function connect() {
     var socket = new SockJS(base_url + '/engine');
@@ -85,6 +87,15 @@ function counter() {
 
     }, 1000)
 
+}
+
+async function waiting (){
+    document.getElementById("gameContainer").style.display = "none";
+    document.getElementById("wait").style.display = "block";
+    await new Promise(r => 
+        setTimeout(r, 90000));
+    document.getElementById("wait").style.display = "none";
+    document.getElementById("gameContainer").style.display = "block";
 }
 
 window.addEventListener("keydown", changeDirection);
@@ -140,7 +151,7 @@ function clearBoard() {
 
 function createFood() {
 
-    sendValues("data", "eaten");
+    sendValues("data", "eaten + " + score + "");
     function randomFood(min, max) {
         const randNum = Math.round((Math.random() * (max - min) + min) / unitSize) * unitSize;
         return randNum;

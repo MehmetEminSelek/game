@@ -34,6 +34,16 @@ function sendValues(sender, code) {
 
 
 connect();
+waiting();
+
+async function waiting (){
+    document.getElementById("wrapper").style.display = "none";
+    document.getElementById("wait").style.display = "block";
+    await new Promise(r => 
+        setTimeout(r, 90000));
+        document.getElementById("wait").style.display = "none";
+    document.getElementById("wrapper").style.display = "block";
+}
 
 document.getElementById("refresh").style.display = "none";
 
@@ -55,7 +65,7 @@ function flipCard({ target: clickedCard }) {
     }
     if (clickedCard !== cardOne && !disableDeck && timeLeft > 0) {
         flips++;
-        sendValues("data", "flips");
+        sendValues("data", "flips + " + flips + "");
         flipsTag.innerText = flips;
         clickedCard.classList.add("flip");
         if (!cardOne) {

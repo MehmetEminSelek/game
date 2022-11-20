@@ -11,7 +11,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(#c4cbec, #5a5e73);
+    background: #292929;
 }
 
 .counter {
@@ -194,6 +194,7 @@ body {
 }
 
 #gameContainer {
+    animation: ease-in 3s;
     width: 100%;
     height: 100%;
     display: flex;
@@ -599,4 +600,68 @@ body {
 .details button:hover {
     color: #fff;
     background: #6563ff;
+}
+
+.wait {
+    -webkit-animation: breathing 2s ease-out infinite normal;
+    animation: breathing 2s ease-out infinite normal;
+    -webkit-font-smoothing: antialiased;
+    padding: 12px;
+    margin: 50px auto;
+    font-size: 150px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-style: normal;
+    font-family: 'Oswald';
+    color: #ffbe0b;
+    text-shadow: 2px 2px 20px #ffbe0b;
+}
+
+@-webkit-keyframes breathing {
+    0% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    25% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    60% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+}
+
+@keyframes breathing {
+    0% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    25% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+    60% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
 }

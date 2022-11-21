@@ -7,10 +7,10 @@ const postHeaders = {
 };
 const base_url = "https://wafer-backend.com:443";
 //const base_url = "http://localhost:443";
-var snakeURL = "http://127.0.0.1:5502/snake/index.html"
-var cardURL = "http://127.0.0.1:5502/card/index.html"
-var endURL = "http://127.0.0.1:5502/index.html"
-var lastSurveyUrl = "http://127.0.0.1:5502/form/lastSurvey.html";
+var snakeURL = "https://wafer-game.com//snake/index.html"
+var cardURL = "https://wafer-game.com//card/index.html"
+var endURL = "https://wafer-game.com//index.html"
+var lastSurveyUrl = "https://wafer-game.com//form/lastSurvey.html";
 var questionAnswer = "";
 
 if (document.referrer == "https://wafer-experiment.com/") {

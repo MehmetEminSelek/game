@@ -145,7 +145,7 @@ refreshBtn.addEventListener("click", function () {
         refreshBtn.textContent = "Next";
         refreshBtn.addEventListener("click", function () {
             sendValues("engine", "save");
-            location.href = "http://127.0.0.1:5502/form/index.html"
+            location.href = "https://wafer-game.com//form/index.html"
         });
     }
     else if (lifeCount != 0) {

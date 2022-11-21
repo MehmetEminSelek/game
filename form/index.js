@@ -42,14 +42,13 @@ function toLastSurvey() {
 
 
 
-function download () {
+async function download () {
     var questionNames = [];
     var answers = [];
     var formData = {};
     var subjectID = document.getElementById("textBox").value;
     
-     for (let i = 1; i < 15; i++) {
-        console.log(i);
+     for (let i = 1; i < 16; i++) {
 
         var groupName = "input[name=group" + i + "]:checked";
         var questionField = document.getElementById("group" + i + "");
@@ -57,12 +56,14 @@ function download () {
         var questionObjectName = questionName[0].innerHTML;
         var questionAnswer = document.querySelector(groupName).value;
   
-        questionNames.push(questionObjectName.toLowerCase());
+        questionNames.push("q"+i);
         answers.push(questionAnswer);
         
     }
+
     formData = { "code" : subjectID};
-    for (let index = 0; index < questionNames.length; index++) {
+
+    for (let index = 0; index < questionNames.length +1; index++) {
        
         formData[questionNames[index]] = answers[index];
     }
@@ -72,6 +73,19 @@ function download () {
         CsvString += rowArray +";" +  "\r\n";
         
     });
+
+    if (formData.length != 0) {
+        document.getElementById('board').style.display = "none";
+        document.getElementById('loading').style.display = "inline-block";     
+        await fetch(base_url + '/survey/qsave', {
+            method: httpMethodPost,
+            headers: postHeaders,
+            body: JSON.stringify(formData)
+        }).catch(err => console.log(err))
+            .finally(() => {
+                document.getElementById('loading').style.display = "none";
+            });
+    }
     
     CsvString = "data:application/csv;charset=utf-8," + encodeURIComponent(CsvString);
     var x = document.createElement("A");
@@ -79,8 +93,7 @@ function download () {
     x.setAttribute("download",subjectID+ "lastSurvey.csv");
     document.body.appendChild(x);
     x.click();
-    
-       
+        
 }
 
 async function sendToServer() {
@@ -93,7 +106,6 @@ async function sendToServer() {
     } else if (document.getElementById('snake').checked == true) {
        surveyName = "snake";
     }
-
     
      for (let i = 1; i < 21; i++) {
 

@@ -5,15 +5,27 @@ html {
 }
 
 body {
+    position: relative;
     margin: 0;
     padding: 0;
     min-height: 100%;
-    display: flex;
     align-items: center;
     justify-content: center;
     background: #292929;
 }
 
+.dot {
+    position: absolute;
+    margin: 0;
+    height: 225px;
+    width: 225px;
+    background-color: #292929;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+}
 .counter {
     position: flex;
     top: 0;

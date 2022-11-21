@@ -7,12 +7,38 @@
   <title>Memory Card Game | CodingNepal</title>
   <link rel="stylesheet" href="/card/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Bungee+Spice' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
 </head>
 
 <body>
-  <div id="wait" class="wait">Attendere due minuti</div>
+  <div>
+    <span id="dot" class="dot"></span>
+  </div>
+  <div id="gameContainer">
+    <div id="centerBoard">
+      <canvas id="gameBoard" width="500" height="500"></canvas>
+      <div id="gameboardContainer">
+        <div id="gridHeader" class="gridHeader">
+          <p style="font-size:75px; font-family: Bungee Spice">
+            CARD GAME</p>
+        </div>
+        <div id="gridInstructions">
+          <textarea id="textBox" class="buttons text" placeholder="Digitare qui"></textarea>
+        </div>
+        <div id="gridHeader" class="gridHeader gridText">
+          <p>Per favore, accoppia le carte con lo stesso simbolo</p>
+        </div>
+        <div id="gridBody">
+          <button class="buttons play snakeGameBtn" onclick="startGame()" id="startSnakeBtn">Avanti</button>
+        </div>
+      </div>
+      <canvas id="webCanvas" width="360" height="240">Canvas not supported</canvas>
+    </div>
+  </div>
+  <div id="wait" class="wait"></div>
   <div id="wrapper" class="wrapper">
     <ul class="cards">
       <li class="card">
@@ -112,9 +138,9 @@
         </div>
       </li>
       <div class="details">
-        <p class="time">Tempo: <span><b>5</b>s</span></p>
+        <p class="time">Tempo: <span><b>35</b>s</span></p>
         <p class="flips">Flips: <span><b>0</b></span></p>
-        <button id="refresh">Reset</button>
+        <button id="refresh">Riprova</button>
       </div>
     </ul>
   </div>

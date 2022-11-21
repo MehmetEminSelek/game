@@ -3,7 +3,7 @@ const cards = document.querySelectorAll(".card"),
     flipsTag = document.querySelector(".flips b"),
     refreshBtn = document.querySelector(".details button");
 
-let maxTime = 50;
+let maxTime = 35;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -36,21 +36,34 @@ function sendValues(sender, code) {
 connect();
 waiting();
 
+function toggleBackgroundColor() {
+    switch (experimentNo) {
+        case 1:
+            document.getElementById("dot").style.backgroundColor = "#fff"
+            break;
+        case 2:
+            document.getElementById("dot").style.backgroundColor = "#292929";
+            break;
+        case 3:
+            document.getElementById("dot").style.backgroundColor = "#fff";
+    }
+}
+
 async function waiting (){
     document.getElementById("wrapper").style.display = "none";
-    document.getElementById("wait").style.display = "block";
+    document.getElementById("gameContainer").style.display = "none";
     await new Promise(r => 
-        setTimeout(r, 90000));
-        document.getElementById("wait").style.display = "none";
-    document.getElementById("wrapper").style.display = "block";
+        setTimeout(r, 900));
+    document.getElementById("gameContainer").style.display = "inline-block";
 }
 
 document.getElementById("refresh").style.display = "none";
 
 function initTimer() {
     if (timeLeft <= 0) {
-        document.getElementById("refresh").style.display = "block";
         sendValues("engine", "stop");
+        document.getElementById("refresh").style.display = "block";
+        experimentNo++;
         return clearInterval(timer);
     }
     timeLeft--;
@@ -85,6 +98,7 @@ function matchCards(img1, img2) {
         sendValues("data", "success + " + matchedCard + "");
         if (matchedCard == 6 && timeLeft > 0) {
             sendValues("engine", "stop");
+            document.getElementById("refresh").style.display = "block";    
             experimentNo++;
             return clearInterval(timer);
         }
@@ -107,9 +121,15 @@ function matchCards(img1, img2) {
     }, 1200);
 }
 
-
+function startGame() {
+    document.getElementById("gameContainer").style.display = "none";
+    document.getElementById("wrapper").style.display = "inline-block";
+    subjectName = textBox.value;
+    shuffleCard();
+}
 
 function shuffleCard() {
+    toggleBackgroundColor();
     sendValues("engine", "start");
     document.getElementById("refresh").style.display = "none";
     timeLeft = maxTime;

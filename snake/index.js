@@ -45,6 +45,7 @@ var experimentNo = 1;
 var lifeCount = 3;
 var subjectName = "";
 
+
 connect();
 waiting();
 
@@ -67,7 +68,7 @@ function counter() {
     startContainer.style.display = "none";
     const counter = document.getElementById('counter');
     counter.style.display = "block";
-    let value = 5;
+    let value = 3;
 
     const intervalID = setInterval(() => {
         const nextValue = --value;
@@ -93,18 +94,34 @@ async function waiting (){
     document.getElementById("gameContainer").style.display = "none";
     document.getElementById("wait").style.display = "block";
     await new Promise(r => 
-        setTimeout(r, 90000));
+        setTimeout(r, 900));
     document.getElementById("wait").style.display = "none";
     document.getElementById("gameContainer").style.display = "block";
 }
 
+function toggleBackgroundColor() {
+    switch (experimentNo) {
+        case 1:
+            document.getElementById("dot").style.backgroundColor = "#fff";
+            break;
+        case 2:
+            document.getElementById("dot").style.backgroundColor = "#292929";
+            break;
+        case 3:
+            document.getElementById("dot").style.backgroundColor = "#fff";
+    }
+}
+
+
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", () => {
+    toggleBackgroundColor();
     sendValues("engine", "start");
     resetGame();
     resetContainer.style.display = "none";
 });
 startSnakeBtn.addEventListener("click", () => {
+    toggleBackgroundColor();
     subjectName = textBox.value;
     sendValues("engine", "start");
     counter();

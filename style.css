@@ -172,7 +172,8 @@ body {
     align-items: center;
     height: 750px;
     width: 750px;
-    border: 5px solid #25316D;
+    border: 2px solid #ffbe0b;
+    box-shadow: 0px 0px 20px 0px #ffbe0b;
     background-color: rgb(216, 216, 216);
     z-index: -1;
 }
@@ -225,15 +226,18 @@ body {
 #gameboardContainer {
     width: 750px;
     height: 750px;
-    border: 5px solid #25316D;
+    border: 2px solid #ffbe0b;
     background-color: rgb(216, 216, 216);
-    box-shadow: 0px 0px 100px 0px #192453;
+    box-shadow: 0px 0px 20px 0px #ffbe0b;
+
 }
 
 #startContainer {
     width: 750px;
     height: 750px;
     display: grid;
+    box-shadow: 0px 0px 20px 0px #ffbe0b;
+    background-color: rgb(216, 216, 216);
     grid-template-columns: auto;
 }
 

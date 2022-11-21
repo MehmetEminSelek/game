@@ -3,7 +3,7 @@ const cards = document.querySelectorAll(".card"),
     flipsTag = document.querySelector(".flips b"),
     refreshBtn = document.querySelector(".details button");
 
-let maxTime = 5;
+let maxTime = 50;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -15,7 +15,7 @@ var subjectName;
 var experimentNo = 1;
 
 const base_url = "https://wafer-backend.com:443";
-//const base_url = "http://192.168.1.107:8000";
+//const base_url = "http://127.0.0.1:443";
 
 
 
@@ -82,7 +82,7 @@ function flipCard({ target: clickedCard }) {
 function matchCards(img1, img2) {
     if (img1 === img2) {
         matchedCard++;
-        sendValues("data", "success");
+        sendValues("data", "success + " + matchedCard + "");
         if (matchedCard == 6 && timeLeft > 0) {
             sendValues("engine", "stop");
             experimentNo++;
@@ -145,7 +145,7 @@ refreshBtn.addEventListener("click", function () {
         refreshBtn.textContent = "Next";
         refreshBtn.addEventListener("click", function () {
             sendValues("engine", "save");
-            location.href = "https://wafer-game.com/form/index.html"
+            location.href = "http://127.0.0.1:5502/form/index.html"
         });
     }
     else if (lifeCount != 0) {

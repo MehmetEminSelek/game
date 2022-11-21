@@ -10,316 +10,322 @@
 </head>
 
 <body>
-  <div class="board">
+  <div id="loading">
+    <div class="lds-dual-ring"></div>
+  </div>
+  <div id="board" class="board">
     <div class="grid1">
       <div class="card select" id="selectGame">
         <p>Quale gioco hai giocato? </p>
-        <input type="radio" name="JTP" id="snake" style="scale: (2);">Snake<br>
+        <input type="radio" name="JTP" id="snake">Snake<br>
         <input type="radio" name="JTP" id="card">Card<br>
       </div>
       <div class="grid1">
         <div class="table">
+          <div id="gridInstructions" style="font-weight: bold;">
+            <p>Inserisci il numero identificativo che ti è stato fornito.</p>
+            <textarea id="textBox" class="buttons text" placeholder="Digitare qui"></textarea>
+          </div>
           <div class="tableRow">
             <fieldset class="group" id="group1">
-              <p class="question">Determinato</p>
-              <input class="inputs" type="radio" value="a" name="group1">
+              <a class="question">Determinato</a>
+              <input class="inputs" type="radio" value="Affatto" name="group1">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group1">
+              <input class="inputs" type="radio" value="Leggermente" name="group1">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group1">
+              <input class="inputs" type="radio" value="Abbastanza" name="group1">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group1">
+              <input class="inputs" type="radio" value="Molto" name="group1">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group1">
+              <input class="inputs" type="radio" value="Estremamente" name="group1">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
             <fieldset class="group" id="group2">
-              <p class="question">Attivo</p>
-              <input class="inputs" type="radio" value="a" name="group2">
+              <a class="question">Attivo</a>
+              <input class="inputs" type="radio" value="Affatto" name="group2">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group2">
+              <input class="inputs" type="radio" value="Leggermente" name="group2">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group2">
+              <input class="inputs" type="radio" value="Abbastanza" name="group2">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group2">
+              <input class="inputs" type="radio" value="Molto" name="group2">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group2">
+              <input class="inputs" type="radio" value="Estremamente" name="group2">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
             <fieldset class="group" id="group3">
-              <p class="question">Interessato</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+              <a class="question">Interessato</a>
+              <input class="inputs" type="radio" value="Affatto" name="group3">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group3">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group3">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group3">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group3">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Attento</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group4">
+              <a class="question">Attento</a>
+              <input class="inputs" type="radio" value="Affatto" name="group4">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group4">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group4">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group4">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group4">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Entusiasta</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group5">
+              <a class="question">Entusiasta</a>
+              <input class="inputs" type="radio" value="Affatto" name="group5">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group5">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group5">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group5">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group5">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Concentrato</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group6">
+              <a class="question">Concentrato</a>
+              <input class="inputs" type="radio" value="Affatto" name="group6">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group6">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group6">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group6">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group6">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Forte</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group7">
+              <a class="question">Forte</a>
+              <input class="inputs" type="radio" value="Affatto" name="group7">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group7">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group7">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group7">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group7">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Inspirato</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group8">
+              <a class="question">Inspirato</a>
+              <input class="inputs" type="radio" value="Affatto" name="group8">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group8">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group8">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group8">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group8">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Eccitato</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group9">
+              <a class="question">Eccitato</a>
+              <input class="inputs" type="radio" value="Affatto" name="group9">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group9">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group9">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group9">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group9">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Orgoglioso</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group10">
+              <a class="question">Impaurito</a>
+              <input class="inputs" type="radio" value="Affatto" name="group10">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group10">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group10">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group10">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group10">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Impaurito</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group11">
+              <a class="question">Turbato</a>
+              <input class="inputs" type="radio" value="Affatto" name="group11">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group11">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group11">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group11">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group11">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Turbato</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group12">
+              <a class="question">Nervoso</a>
+              <input class="inputs" type="radio" value="Affatto" name="group12">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group12">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group12">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group12">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group12">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Nervoso</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group13">
+              <a class="question">Agitato</a>
+              <input class="inputs" type="radio" value="Affatto" name="group13">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group13">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group13">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group13">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group13">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Agitato</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group14">
+              <a class="question">Spaventato</a>
+              <input class="inputs" type="radio" value="Affatto" name="group14">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group14">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group14">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group14">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group14">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Spaventato</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group15">
+              <a class="question">Angosciato</a>
+              <input class="inputs" type="radio" value="Affatto" name="group15">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group15">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group15">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group15">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group15">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Angosciato</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group16">
+              <a class="question">Colpevole</a>
+              <input class="inputs" type="radio" value="Affatto" name="group16">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group16">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group16">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group16">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group16">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Colpevole</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group17">
+              <a class="question">Vergogna</a>
+              <input class="inputs" type="radio" value="Affatto" name="group17">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group17">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group17">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group17">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group17">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Vergogna</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group18">
+              <a class="question">Irritabile</a>
+              <input class="inputs" type="radio" value="Affatto" name="group18">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group18">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group18">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group18">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group18">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
           <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Irritabile</p>
-              <input class="inputs" type="radio" value="a" name="group3">
+            <fieldset class="group" id="group19">
+              <a class="question">Ostile</a>
+              <input class="inputs" type="radio" value="Affatto" name="group19">
               <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
+              <input class="inputs" type="radio" value="Leggermente" name="group19">
               <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
+              <input class="inputs" type="radio" value="Abbastanza" name="group19">
               <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
+              <input class="inputs" type="radio" value="Molto" name="group19">
               <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
+              <input class="inputs" type="radio" value="Estremamente" name="group19">
               <p class="inputText e">Estremamente</p>
             </fieldset>
           </div>
-          <div class="tableRow">
-            <fieldset class="group" id="group3">
-              <p class="question">Ostile</p>
-              <input class="inputs" type="radio" value="a" name="group3">
-              <p class="inputText a">Affatto</p>
-              <input class="inputs" type="radio" value="b" name="group3">
-              <p class="inputText b">Leggermente</p>
-              <input class="inputs" type="radio" value="c" name="group3">
-              <p class="inputText c">Abbastanza</p>
-              <input class="inputs" type="radio" value="d" name="group3">
-              <p class="inputText d">Molto</p>
-              <input class="inputs" type="radio" value="e" name="group3">
-              <p class="inputText e">Estremamente</p>
-            </fieldset>
-          </div>
-
+            <div class="tableRow">
+              <fieldset class="group" id="group20">
+                <a class="question">Orgoglioso</a>
+                <input class="inputs" type="radio" value="Affatto" name="group20">
+                <p class="inputText a">Affatto</p>
+                <input class="inputs" type="radio" value="Leggermente" name="group20">
+                <p class="inputText b">Leggermente</p>
+                <input class="inputs" type="radio" value="Abbastanza" name="group20">
+                <p class="inputText c">Abbastanza</p>
+                <input class="inputs" type="radio" value="Molto" name="group20">
+                <p class="inputText d">Molto</p>
+                <input class="inputs" type="radio" value="Estremamente" name="group20">
+                <p class="inputText e">Estremamente</p>
+              </fieldset>
+            </div>
         </div>
       </div>
 

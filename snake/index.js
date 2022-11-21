@@ -25,7 +25,7 @@ const foodColor = "#ecb428";
 const unitSize = 25;
 const timeArray = [];
 const base_url = "https://wafer-backend.com:443";
-//const base_url = "http://192.168.1.107:8000";
+//const base_url = "http://localhost:443";
 let running = false;
 let xVelocity = 15;
 let yVelocity = 0;
@@ -268,7 +268,7 @@ function displayGameOver() {
     lifeCount--;
     if (lifeCount == 0) {
         sendValues("engine", "save");
-        location.href = "https://wafer-game.com/form/index.html";
+        location.href = "http://127.0.0.1:5502/form/index.html";
     }
     sendValues("data", "gameOver");
     sendValues("engine", "stop");

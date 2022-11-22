@@ -53,7 +53,7 @@ async function waiting (){
     document.getElementById("wrapper").style.display = "none";
     document.getElementById("gameContainer").style.display = "none";
     await new Promise(r => 
-        setTimeout(r, 900));
+        setTimeout(r, 120000));
     document.getElementById("gameContainer").style.display = "inline-block";
 }
 

@@ -94,7 +94,7 @@ async function waiting (){
     document.getElementById("gameContainer").style.display = "none";
     document.getElementById("wait").style.display = "block";
     await new Promise(r => 
-        setTimeout(r, 900));
+        setTimeout(r, 120000));
     document.getElementById("wait").style.display = "none";
     document.getElementById("gameContainer").style.display = "block";
 }

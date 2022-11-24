@@ -3,7 +3,7 @@ const cards = document.querySelectorAll(".card"),
     flipsTag = document.querySelector(".flips b"),
     refreshBtn = document.querySelector(".details button");
 
-let maxTime = 35;
+let maxTime = 30;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -63,6 +63,8 @@ function initTimer() {
     if (timeLeft <= 0) {
         sendValues("engine", "stop");
         document.getElementById("refresh").style.display = "block";
+        document.getElementById("hit").style.display = "block";
+        document.getElementById("hit").innerHTML = "HIT THE RIPROVE TO RESTART";
         experimentNo++;
         return clearInterval(timer);
     }
@@ -71,6 +73,8 @@ function initTimer() {
 }
 
 function flipCard({ target: clickedCard }) {
+    document.getElementById("hit").style.display = "none";
+    toggleBackgroundColor();
     if (!isPlaying) {
         isPlaying = true;
         sendValues("engine", "start");
@@ -129,7 +133,6 @@ function startGame() {
 }
 
 function shuffleCard() {
-    toggleBackgroundColor();
     sendValues("engine", "start");
     document.getElementById("refresh").style.display = "none";
     timeLeft = maxTime;
@@ -156,6 +159,7 @@ function shuffleCard() {
 
 
 refreshBtn.addEventListener("click", function () {
+    document.getElementById("hit").style.display = "none";
     lifeCount--;
     console.log(lifeCount);
     // if (lifeCount == 1) {

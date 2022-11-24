@@ -399,6 +399,7 @@ body {
 
 
 .reset {
+    display: "none";
     color: #258028;
     font-weight: bold;
     font-size: 50px;

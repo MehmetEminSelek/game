@@ -278,8 +278,8 @@ function checkGameOver() {
     }
 };
 
-function displayGameOver() {
-
+async function displayGameOver() {
+    resetBtn.style.display = "none";
     experimentNo++;
     xVelocity += 5;
     lifeCount--;
@@ -295,6 +295,9 @@ function displayGameOver() {
     gameboardContainer.style.display = "inline";
     startContainer.style.display = "none";
     resetContainer.style.display = "grid";
+    await new Promise(r =>
+        setTimeout(r, 3000));
+    resetBtn.style.display = "block";
 
 };
 

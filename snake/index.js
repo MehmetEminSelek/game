@@ -41,7 +41,7 @@ let snake = [
     { x: unitSize, y: 0 },
     { x: 0, y: 0 }
 ];
-var experimentNo = 1;
+var experimentNo = 11;
 var lifeCount = 3;
 var subjectName = "";
 
@@ -101,13 +101,13 @@ async function waiting (){
 
 function toggleBackgroundColor() {
     switch (experimentNo) {
-        case 1:
+        case 11:
             document.getElementById("dot").style.backgroundColor = "#fff";
             break;
-        case 2:
+        case 12:
             document.getElementById("dot").style.backgroundColor = "#292929";
             break;
-        case 3:
+        case 13:
             document.getElementById("dot").style.backgroundColor = "#fff";
     }
 }
@@ -281,7 +281,6 @@ function checkGameOver() {
 async function displayGameOver() {
     resetBtn.style.display = "none";
     experimentNo++;
-    xVelocity += 5;
     lifeCount--;
     if (lifeCount == 0) {
         sendValues("engine", "save");

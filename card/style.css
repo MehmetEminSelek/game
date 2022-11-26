@@ -122,6 +122,9 @@ body {
     align-items: center;
 }
 
+#next {
+    display: none;
+}
 
 .dot {
     position: absolute;
@@ -217,7 +220,9 @@ p {
 }
 
 .card .front-view img {
-    max-width: 17px;
+    width: 50%;
+        height: 50%;
+        border-radius: 7px;
 }
 
 .card .back-view {
@@ -225,13 +230,13 @@ p {
 }
 
 .card .back-view img {
-    max-width: 40px;
+    width: 50%;
+        height: 50%;
 }
 
 .card.flip .front-view {
     transform: rotateY(180deg);
 }
-
 .card.flip .back-view {
     transform: rotateY(0);
 }

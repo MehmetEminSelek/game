@@ -86,14 +86,6 @@ async function download () {
                 document.getElementById('loading').style.display = "none";
             });
     }
-    
-    CsvString = "data:application/csv;charset=utf-8," + encodeURIComponent(CsvString);
-    var x = document.createElement("A");
-    x.setAttribute("href", CsvString );
-    x.setAttribute("download",subjectID+ "lastSurvey.csv");
-    document.body.appendChild(x);
-    x.click();
-        
 }
 
 async function sendToServer() {

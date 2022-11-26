@@ -2,7 +2,9 @@ const cards = document.querySelectorAll(".card"),
     timeTag = document.querySelector(".time b"),
     flipsTag = document.querySelector(".flips b"),
     refreshBtn = document.querySelector(".details button");
+const nextBtn = document.getElementById("next");
 
+//TODO:CHANGE TO 30
 let maxTime = 30;
 let timeLeft = maxTime;
 let flips = 0;
@@ -12,7 +14,7 @@ let isPlaying = false;
 let cardOne, cardTwo, timer;
 let lifeCount = 3;
 var subjectName;
-var experimentNo = 1;
+var experimentNo = 21;
 
 const base_url = "https://wafer-backend.com:443";
 //const base_url = "http://127.0.0.1:443";
@@ -38,13 +40,13 @@ waiting();
 
 function toggleBackgroundColor() {
     switch (experimentNo) {
-        case 1:
+        case 21:
             document.getElementById("dot").style.backgroundColor = "#fff"
             break;
-        case 2:
+        case 22:
             document.getElementById("dot").style.backgroundColor = "#292929";
             break;
-        case 3:
+        case 23:
             document.getElementById("dot").style.backgroundColor = "#fff";
     }
 }
@@ -53,6 +55,7 @@ async function waiting (){
     document.getElementById("wrapper").style.display = "none";
     document.getElementById("gameContainer").style.display = "none";
     await new Promise(r => 
+        //TODO change to 120000
         setTimeout(r, 120000));
     document.getElementById("gameContainer").style.display = "inline-block";
 }
@@ -61,8 +64,9 @@ document.getElementById("refresh").style.display = "none";
 
 function initTimer() {
     if (timeLeft <= 0) {
+        lifeCount--;
         sendValues("engine", "stop");
-        document.getElementById("refresh").style.display = "block";
+        checkLife();
         document.getElementById("hit").style.display = "block";
         document.getElementById("hit").innerHTML = "HIT THE RIPROVE TO RESTART";
         experimentNo++;
@@ -101,7 +105,10 @@ function matchCards(img1, img2) {
         matchedCard++;
         sendValues("data", "success + " + matchedCard + "");
         if (matchedCard == 6 && timeLeft > 0) {
+            lifeCount--;
             sendValues("engine", "stop");
+            checkLife();
+            sendValues("data", "finished + " + maxTime - timeLeft + "");
             document.getElementById("refresh").style.display = "block";    
             experimentNo++;
             return clearInterval(timer);
@@ -129,7 +136,6 @@ function startGame() {
     document.getElementById("gameContainer").style.display = "none";
     document.getElementById("wrapper").style.display = "inline-block";
     subjectName = textBox.value;
-    shuffleCard();
 }
 
 function shuffleCard() {
@@ -156,18 +162,28 @@ function shuffleCard() {
     });
 
 }
+nextBtn.addEventListener("click", function () {
+    sendValues("engine", "save");
+    location.href = "https://wafer-game.com//form/index.html"
+});
 
+function checkLife() {
+    refreshBtn.style.display = "none";
+    if (lifeCount == 0) {
+        refreshBtn.style.display = "none";
+        document.getElementById("next").style.display = "block";
+    }
+    else {
+        refreshBtn.style.display = "inline-block";
+    }
+}
 
 refreshBtn.addEventListener("click", function () {
     document.getElementById("hit").style.display = "none";
-    lifeCount--;
-    console.log(lifeCount);
-    // if (lifeCount == 1) {
-    //     document.getElementById("refresh").innerHTML = "Next";
-    // }
     if (lifeCount == 0) {
-        refreshBtn.textContent = "Next";
-        refreshBtn.addEventListener("click", function () {
+        refreshBtn.style.display = "none";
+        document.getElementById("next").style.display = "block";
+        nextBtn.addEventListener("click", function () {
             sendValues("engine", "save");
             location.href = "https://wafer-game.com//form/index.html"
         });

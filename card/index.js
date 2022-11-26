@@ -108,7 +108,7 @@ function matchCards(img1, img2) {
             lifeCount--;
             sendValues("engine", "stop");
             checkLife();
-            sendValues("data", "finished + " + maxTime - timeLeft + "");
+            sendValues("data", "finished + " + (maxTime - timeLeft) + "");
             document.getElementById("refresh").style.display = "block";    
             experimentNo++;
             return clearInterval(timer);

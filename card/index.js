@@ -5,7 +5,7 @@ const cards = document.querySelectorAll(".card"),
 const nextBtn = document.getElementById("next");
 
 //TODO:CHANGE TO 35
-let maxTime = 35;
+let maxTime = 30;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -108,7 +108,7 @@ function matchCards(img1, img2) {
             lifeCount--;
             sendValues("engine", "stop");
             checkLife();
-            sendValues("data", "finished + " + (maxTime - timeLeft) + "");
+            sendValues("data", "finished + " + (maxTime - timeLeft) + "SEC");
             document.getElementById("refresh").style.display = "block";    
             experimentNo++;
             return clearInterval(timer);

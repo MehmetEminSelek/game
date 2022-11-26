@@ -4,8 +4,8 @@ const cards = document.querySelectorAll(".card"),
     refreshBtn = document.querySelector(".details button");
 const nextBtn = document.getElementById("next");
 
-//TODO:CHANGE TO 30
-let maxTime = 30;
+//TODO:CHANGE TO 35
+let maxTime = 35;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -56,7 +56,7 @@ async function waiting (){
     document.getElementById("gameContainer").style.display = "none";
     await new Promise(r => 
         //TODO change to 120000
-        setTimeout(r, 120000));
+        setTimeout(r, 120));
     document.getElementById("gameContainer").style.display = "inline-block";
 }
 

@@ -56,7 +56,7 @@ async function waiting (){
     document.getElementById("gameContainer").style.display = "none";
     await new Promise(r => 
         //TODO change to 120000
-        setTimeout(r, 120));
+        setTimeout(r, 120000));
     document.getElementById("gameContainer").style.display = "inline-block";
 }
 

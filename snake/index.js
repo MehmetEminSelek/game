@@ -64,16 +64,17 @@ function sendValues(sender, code) {
 }
 
 
-function counter() {
+function counter(value) {
+    resetContainer.style.display = "none";
     startContainer.style.display = "none";
     const counter = document.getElementById('counter');
     counter.style.display = "block";
-    let value = 3;
 
     const intervalID = setInterval(() => {
         const nextValue = --value;
 
         if (nextValue === 0) {
+            //TODO:FOTO DIAGRAM CHANGE HERE
             resetGame();
             clearInterval(intervalID);
             return;
@@ -95,7 +96,7 @@ async function waiting (){
     document.getElementById("wait").style.display = "block";
     //TODO
     await new Promise(r => 
-        setTimeout(r, 120000));
+        setTimeout(r, 120));
     document.getElementById("wait").style.display = "none";
     document.getElementById("gameContainer").style.display = "block";
 }
@@ -113,19 +114,25 @@ function toggleBackgroundColor() {
     }
 }
 
+async function gameWait(seconds) {
+    await new Promise(r =>
+        setTimeout(r, seconds));
+}
+
 
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", () => {
-    toggleBackgroundColor();
-    sendValues("engine", "start");
-    resetGame();
-    resetContainer.style.display = "none";
+    //TODO: countdown 2 secs before reset
+    counter(3)
+    // toggleBackgroundColor();
+    // sendValues("engine", "start");
+    // resetGame();
+    // resetContainer.style.display = "none";
 });
 startSnakeBtn.addEventListener("click", () => {
     toggleBackgroundColor();
     subjectName = textBox.value;
-    sendValues("engine", "start");
-    counter();
+    counter(3);
 
 });
 
@@ -138,6 +145,8 @@ function drawGame() {
 }
 
 function gameStart() {
+    toggleBackgroundColor();
+    sendValues("engine", "start");
     running = true;
     scoreText.textContent = score;
     createFood();
@@ -284,7 +293,6 @@ async function displayGameOver() {
     experimentNo++;
     lifeCount--;
     if (lifeCount == 0) {
-        sendValues("engine", "save");
         location.href = "https://wafer-game.com//form/index.html";
     }
     sendValues("data", "gameOver");

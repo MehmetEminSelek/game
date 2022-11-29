@@ -11,6 +11,7 @@ var snakeURL = "https://wafer-game.com//snake/index.html"
 var cardURL = "https://wafer-game.com//card/index.html"
 var endURL = "https://wafer-game.com//index.html"
 var lastSurveyUrl = "https://wafer-game.com//form/lastSurvey.html";
+var surveyUrl = "https://wafer-game.com//form/index.html";
 var questionAnswer = "";
 
 if (document.referrer == "https://wafer-experiment.com/") {
@@ -31,8 +32,10 @@ function toSnake() {
 
 function toEnd() {
     download();
-    location.href = endURL;
-    
+}
+
+function survey() {
+    location.href = surveyUrl;
 }
 
 function toLastSurvey() {
@@ -54,7 +57,12 @@ async function download () {
         var questionField = document.getElementById("group" + i + "");
         var questionName = questionField.getElementsByTagName("a");
         var questionObjectName = questionName[0].innerHTML;
-        var questionAnswer = document.querySelector(groupName).value;
+         try {
+             var questionAnswer = document.querySelector(groupName).value;
+         } catch (error) {
+             swal("Si prega di rispondere a tutte le domande!", questionObjectName, "error");
+             return;
+         }
   
         questionNames.push("q"+i);
         answers.push(questionAnswer);
@@ -62,17 +70,6 @@ async function download () {
     }
 
     formData = { "code" : subjectID};
-
-    for (let index = 0; index < questionNames.length +1; index++) {
-       
-        formData[questionNames[index]] = answers[index];
-    }
-    var CsvString = "";
-    answers.forEach(function (rowArray) {
-        
-        CsvString += rowArray +";" +  "\r\n";
-        
-    });
 
     if (formData.length != 0) {
         document.getElementById('board').style.display = "none";
@@ -84,6 +81,7 @@ async function download () {
         }).catch(err => console.log(err))
             .finally(() => {
                 document.getElementById('loading').style.display = "none";
+                location.href = endURL;
             });
     }
 }
@@ -105,8 +103,15 @@ async function sendToServer() {
         var questionField = document.getElementById("group" + i + "");
         var questionName = questionField.getElementsByTagName("a");
         var questionObjectName = questionName[0].innerHTML;
-        var questionAnswer = document.querySelector(groupName).value;
-  
+         try {
+             var questionAnswer = document.querySelector(groupName).value;
+         } catch (error) {
+             swal("Si prega di rispondere a tutte le domande!", questionObjectName, "error");
+             return;
+         }
+         console.log(questionAnswer);
+
+
         questionNames.push(questionObjectName.toLowerCase());
         answers.push(questionAnswer);
         
@@ -133,22 +138,21 @@ async function sendToServer() {
         }).catch(err => console.log(err))
             .finally(() => {
                 document.getElementById('loading').style.display = "none";
+                if (document.getElementById('card').checked == true) {
+                    toLastSurvey();
+                } else if (document.getElementById('snake').checked == true) {
+                    toCard();
+                }
+                else {
+                    toSnake();
+                }
+
             });
     }
 }
 
 
-
-
 document.querySelector("#submitButton").addEventListener("click", function () {
     sendToServer();
 
-    if (document.getElementById('card').checked == true) {
-        toLastSurvey();
-    } else if (document.getElementById('snake').checked == true) {
-        toCard();
-    }
-    else {
-        toSnake();
-    }
 });

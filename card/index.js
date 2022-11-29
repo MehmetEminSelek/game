@@ -60,7 +60,7 @@ async function waiting (){
     gameContainer.style.display = "none";
     await new Promise(r => 
         //TODO change to 120000
-        setTimeout(r, 120000));
+        setTimeout(r, 120));
     gameContainer.style.display = "inline-block";
 }
 
@@ -81,12 +81,12 @@ function initTimer() {
     timeTag.innerText = timeLeft;
 }
 
-function flipCard({ target: clickedCard }) {
+async function flipCard({ target: clickedCard }) {
     document.getElementById("hit").style.display = "none";
     toggleBackgroundColor();
     if (!isPlaying) {
         isPlaying = true;
-        sendValues("engine", "start");
+        await sendValues("engine", "start");
         timer = setInterval(initTimer, 1000);
     }
     if (clickedCard !== cardOne && !disableDeck && timeLeft > 0) {
@@ -104,15 +104,18 @@ function flipCard({ target: clickedCard }) {
     }
 }
 
-function matchCards(img1, img2) {
+async function matchCards(img1, img2) {
     if (img1 === img2) {
         matchedCard++;
-        sendValues("data", "success + " + matchedCard + "");
+        await sendValues("data", "success + " + matchedCard + "");
         if (matchedCard == 6 && timeLeft > 0) {
+            shownCards.forEach(card => {
+                card.style.display = "none";
+            });
             lifeCount--;
             sendValues("engine", "stop");
             checkLife();
-            sendValues("data", "finished + " + (maxTime - timeLeft) + "SEC");
+            await sendValues("data", "finished + " + (maxTime - timeLeft) + "SEC");
             document.getElementById("refresh").style.display = "block";    
             experimentNo++;
             return clearInterval(timer);
@@ -123,7 +126,7 @@ function matchCards(img1, img2) {
         return disableDeck = false;
     }
     else if (img1 !== img2) {
-        sendValues("data", "failed + " + flips / 2 + "");
+        await sendValues("data", "failed + " + flips / 2 + "");
     }
 
     setTimeout(() => {

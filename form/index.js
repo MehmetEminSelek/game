@@ -18,12 +18,10 @@ if (document.referrer == "https://wafer-experiment.com/") {
     document.getElementById("selectGame").style.display = "none";
 }
 
-
 function toCard() {
     location.href = cardURL;
     
 }
-
 
 function toSnake() {
     location.href = snakeURL;
@@ -110,12 +108,10 @@ async function sendToServer() {
              swal("Si prega di rispondere a tutte le domande!", questionObjectName, "error");
              return;
          }
-         console.log(questionAnswer);
-
 
         questionNames.push(questionObjectName.toLowerCase());
         answers.push(questionAnswer);
-        
+
     }
     if (surveyName == ""){
         surveyName = "firstSurvey";
@@ -127,8 +123,7 @@ async function sendToServer() {
        
         formData[questionNames[index]] = answers[index];
     }
-       
-    
+
     if (formData.length != 0) {
         document.getElementById('submitButton').style.display = "none";
         document.getElementById('board').style.display = "none";

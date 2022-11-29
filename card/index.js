@@ -4,9 +4,14 @@ const cards = document.querySelectorAll(".card"),
     refreshBtn = document.getElementById("refresh");
 const nextBtn = document.getElementById("next");
 const gameContainer = document.getElementById("gameContainer");
+const wrapper = document.getElementById("wrapper");
+const dot = document.getElementById("dot");
+const cardBoard = document.getElementById("cards");
+const shownCards = cardBoard.querySelectorAll("li");
+
 
 //TODO:CHANGE TO 30
-let maxTime = 3;
+let maxTime = 30;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -20,7 +25,9 @@ var experimentNo = 21;
 const base_url = "https://wafer-backend.com:443";
 //const base_url = "http://127.0.0.1:443";
 
-
+connect();
+waiting();
+refreshBtn.style.display = "none";
 
 function connect() {
     var socket = new SockJS(base_url + '/engine');
@@ -35,36 +42,27 @@ function sendValues(sender, code) {
     stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code, "testSubjectName": subjectName, "experimentNo": experimentNo }));
 }
 
-
-connect();
-waiting();
-
 function toggleBackgroundColor() {
     switch (experimentNo) {
         case 21:
-            document.getElementById("dot").style.backgroundColor = "#fff"
+            dot.style.backgroundColor = "#fff"
             break;
         case 22:
-            document.getElementById("dot").style.backgroundColor = "#292929";
+            dot.style.backgroundColor = "#292929";
             break;
         case 23:
-            document.getElementById("dot").style.backgroundColor = "#fff";
+            dot.style.backgroundColor = "#fff";
     }
 }
 
 async function waiting (){
-    document.getElementById("wrapper").style.display = "none";
-    document.getElementById("gameContainer").style.display = "none";
+    wrapper.style.display = "none";
+    gameContainer.style.display = "none";
     await new Promise(r => 
         //TODO change to 120000
         setTimeout(r, 120000));
-    document.getElementById("gameContainer").style.display = "inline-block";
+    gameContainer.style.display = "inline-block";
 }
-
-document.getElementById("refresh").style.display = "none";
-
-var cardBoard = document.getElementById("cards");
-var shownCards = cardBoard.querySelectorAll("li");
 
 function initTimer() {
     if (timeLeft <= 0) {
@@ -148,7 +146,7 @@ function startGame() {
 
 function shuffleCard() {
     sendValues("engine", "start");
-    document.getElementById("refresh").style.display = "none";
+    refreshBtn.style.display = "none";
     timeLeft = maxTime;
     flips = matchedCard = 0;
     cardOne = cardTwo = "";
@@ -208,10 +206,9 @@ cards.forEach(card => {
     card.addEventListener("click", flipCard);
 });
 
-
 function counter(value) {
-    document.getElementById("gameContainer").style.display = "none";
-    document.getElementById("wrapper").style.display = "none";
+    gameContainer.style.display = "none";
+    wrapper.style.display = "none";
     const counter = document.getElementById('counter');
     counter.style.display = "block";
 
@@ -220,7 +217,7 @@ function counter(value) {
 
         if (nextValue === 0) {
             //TODO:FOTO DIAGRAM CHANGE HERE
-            document.getElementById("wrapper").style.display = "block";
+            wrapper.style.display = "block";
             shuffleCard();
             clearInterval(intervalID);
             return;
@@ -232,7 +229,5 @@ function counter(value) {
                 counter.classList.add('big');
             });
         });
-
     }, 1000)
-
 }

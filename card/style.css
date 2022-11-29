@@ -162,6 +162,15 @@ p {
     justify-content: center;
 }
 
+.time,
+p {
+    font-family: "Bungee";
+}
+
+span {
+    font-family: "Bungee";
+    color: #ffbe0b;
+}
 .cards {
     height: 800px;
     width: 800px;
@@ -254,7 +263,6 @@ p {
 
 .details p {
     font-size: 18px;
-    height: 17px;
     padding-right: 18px;
     border-right: 1px solid #ccc;
 }
@@ -270,17 +278,17 @@ p {
 .details button {
     cursor: pointer;
     font-size: 14px;
-    color: #6563ff;
+    color: black;
     border-radius: 4px;
     padding: 4px 11px;
     background: #fff;
-    border: 2px solid #6563ff;
+    border: 2px solid #ffbe0b;
     transition: 0.3s ease;
 }
 
 .details button:hover {
     color: #fff;
-    background: #6563ff;
+    background: #ffbe0b;
 }
 
 @media screen and (max-width: 700px) {

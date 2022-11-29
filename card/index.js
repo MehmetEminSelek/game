@@ -6,7 +6,7 @@ const nextBtn = document.getElementById("next");
 const gameContainer = document.getElementById("gameContainer");
 
 //TODO:CHANGE TO 30
-let maxTime = 30;
+let maxTime = 3;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -57,14 +57,20 @@ async function waiting (){
     document.getElementById("gameContainer").style.display = "none";
     await new Promise(r => 
         //TODO change to 120000
-        setTimeout(r, 120000));
+        setTimeout(r, 120));
     document.getElementById("gameContainer").style.display = "inline-block";
 }
 
 document.getElementById("refresh").style.display = "none";
 
+var cardBoard = document.getElementById("cards");
+var shownCards = cardBoard.querySelectorAll("li");
+
 function initTimer() {
     if (timeLeft <= 0) {
+        shownCards.forEach(card => {
+            card.style.display = "none";
+        });
         lifeCount--;
         sendValues("engine", "stop");
         checkLife();
@@ -119,7 +125,7 @@ function matchCards(img1, img2) {
         return disableDeck = false;
     }
     else if (img1 !== img2) {
-        sendValues("data", "flips + " + flips / 2 + "");
+        sendValues("data", "failed + " + flips / 2 + "");
     }
 
     setTimeout(() => {
@@ -141,7 +147,6 @@ function startGame() {
 }
 
 function shuffleCard() {
-    toggleBackgroundColor();
     sendValues("engine", "start");
     document.getElementById("refresh").style.display = "none";
     timeLeft = maxTime;
@@ -186,6 +191,9 @@ async function checkLife() {
 }
 
 refreshBtn.addEventListener("click", function () {
+    shownCards.forEach(card => {
+        card.style.display = "inline-block";
+    });
     document.getElementById("hit").style.display = "none";
     if (lifeCount == 0) {
         refreshBtn.style.display = "none";

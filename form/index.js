@@ -72,6 +72,7 @@ async function download () {
     formData = { "code" : subjectID};
 
     if (formData.length != 0) {
+        document.getElementById('submitButton').style.display = "none";
         document.getElementById('board').style.display = "none";
         document.getElementById('loading').style.display = "inline-block";     
         await fetch(base_url + '/survey/qsave', {
@@ -129,6 +130,7 @@ async function sendToServer() {
        
     
     if (formData.length != 0) {
+        document.getElementById('submitButton').style.display = "none";
         document.getElementById('board').style.display = "none";
         document.getElementById('loading').style.display = "inline-block";     
         await fetch(base_url + '/survey/save', {

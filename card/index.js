@@ -60,7 +60,7 @@ async function waiting (){
     gameContainer.style.display = "none";
     await new Promise(r => 
         //TODO change to 120000
-        setTimeout(r, 120));
+        setTimeout(r, 120000));
     gameContainer.style.display = "inline-block";
 }
 
@@ -109,13 +109,13 @@ async function matchCards(img1, img2) {
         matchedCard++;
         await sendValues("data", "success + " + matchedCard + "");
         if (matchedCard == 6 && timeLeft > 0) {
+            await sendValues("data", "finished + " + (maxTime - timeLeft) + "SEC");
             shownCards.forEach(card => {
                 card.style.display = "none";
             });
             lifeCount--;
             sendValues("engine", "stop");
-            checkLife();
-            await sendValues("data", "finished + " + (maxTime - timeLeft) + "SEC");
+            checkLife();   
             document.getElementById("refresh").style.display = "block";    
             experimentNo++;
             return clearInterval(timer);

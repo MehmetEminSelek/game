@@ -61,10 +61,8 @@ async function download() {
             swal("Si prega di rispondere a tutte le domande!", questionObjectName, "error");
             throw error
         }
-
         questionNames.push("q" + i);
         answers.push(questionAnswer);
-
     }
 
     formData = { "code": subjectID };

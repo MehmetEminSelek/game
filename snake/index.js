@@ -101,16 +101,14 @@ async function waiting (){
     document.getElementById("gameContainer").style.display = "block";
 }
 
-function toggleBackgroundColor() {
-    switch (experimentNo) {
-        case 11:
+function toggleBackgroundColor(moment) {
+    switch (moment) {
+        case true:
             document.getElementById("dot").style.backgroundColor = "#fff";
             break;
-        case 12:
+        case false:
             document.getElementById("dot").style.backgroundColor = "#292929";
             break;
-        case 13:
-            document.getElementById("dot").style.backgroundColor = "#fff";
     }
 }
 
@@ -122,18 +120,11 @@ async function gameWait(seconds) {
 
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", () => {
-    //TODO: countdown 2 secs before reset
     counter(3)
-    // toggleBackgroundColor();
-    // sendValues("engine", "start");
-    // resetGame();
-    // resetContainer.style.display = "none";
 });
 startSnakeBtn.addEventListener("click", () => {
-    toggleBackgroundColor();
     subjectName = textBox.value;
     counter(3);
-
 });
 
 
@@ -145,7 +136,7 @@ function drawGame() {
 }
 
 function gameStart() {
-    toggleBackgroundColor();
+    toggleBackgroundColor(true);
     sendValues("engine", "start");
     running = true;
     scoreText.textContent = score;
@@ -289,20 +280,21 @@ function checkGameOver() {
 };
 
 async function displayGameOver() {
+    sendValues("data", "gameOver");
+    toggleBackgroundColor(false);
     resetBtn.style.display = "none";
     experimentNo++;
     lifeCount--;
     if (lifeCount == 0) {
-        location.href = "https://wafer-game.com//form/index.html";
-    }
-    sendValues("data", "gameOver");
-    sendValues("engine", "stop");
+        location.href = "https://wafer-game.com/form/index.html";
+    }   
     document.getElementById("counter").style.display = "none";
     running = false;
     gameBoard.style.display = "none";
     gameboardContainer.style.display = "inline";
     startContainer.style.display = "none";
     resetContainer.style.display = "grid";
+    sendValues("engine", "stop");
     await new Promise(r =>
         setTimeout(r, 3000));
     resetBtn.style.display = "block";
@@ -337,22 +329,5 @@ function resetGame() {
 //             base64image.crossOrigin = "anonymous"
 //             pictures.push(base64image);
 //         });
-//     }, 1000);
-// }
-
-// function startTimer(duration, display) {
-//     var timer = duration, minutes, seconds;
-//     setInterval(function () {
-
-//         minutes = parseInt(timer / 60, 10)
-//         seconds = parseInt(timer % 60, 10);
-//         milliseconds = parseInt(timer % 1000, 10);
-//         minutes = minutes < 10 ? "0" + minutes : minutes;
-//         seconds = seconds < 10 ? "0" + seconds : seconds;
-//         console.log(minutes + ":" + seconds + ":" + milliseconds);
-
-//         if (--timer < 0) {
-//             timer = duration;
-//         }
 //     }, 1000);
 // }

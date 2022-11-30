@@ -8,6 +8,7 @@ const wrapper = document.getElementById("wrapper");
 const dot = document.getElementById("dot");
 const cardBoard = document.getElementById("cards");
 const shownCards = cardBoard.querySelectorAll("li");
+var moment = false;
 
 
 //TODO:CHANGE TO 30
@@ -42,16 +43,14 @@ function sendValues(sender, code) {
     stompClient.send("/engine", {}, JSON.stringify({ 'sender': sender, "message": code, "testSubjectName": subjectName, "experimentNo": experimentNo }));
 }
 
-function toggleBackgroundColor() {
-    switch (experimentNo) {
-        case 21:
+function toggleBackgroundColor(moment) {
+    switch (moment) {
+        case true:
             dot.style.backgroundColor = "#fff"
             break;
-        case 22:
+        case false:
             dot.style.backgroundColor = "#292929";
             break;
-        case 23:
-            dot.style.backgroundColor = "#fff";
     }
 }
 
@@ -65,7 +64,10 @@ async function waiting (){
 }
 
 function initTimer() {
+    moment = false;
+
     if (timeLeft <= 0) {
+        toggleBackgroundColor(moment);
         shownCards.forEach(card => {
             card.style.display = "none";
         });
@@ -82,8 +84,9 @@ function initTimer() {
 }
 
 async function flipCard({ target: clickedCard }) {
+    moment = true;
     document.getElementById("hit").style.display = "none";
-    toggleBackgroundColor();
+    toggleBackgroundColor(moment);
     if (!isPlaying) {
         isPlaying = true;
         await sendValues("engine", "start");
@@ -148,7 +151,6 @@ function startGame() {
 }
 
 function shuffleCard() {
-    sendValues("engine", "start");
     refreshBtn.style.display = "none";
     timeLeft = maxTime;
     flips = matchedCard = 0;
@@ -173,13 +175,12 @@ function shuffleCard() {
 }
 nextBtn.addEventListener("click", function () {
     sendValues("engine", "save");
-    location.href = "https://wafer-game.com//form/index.html"
+    location.href = "https://wafer-game.com/form/index.html"
 });
 
 async function checkLife() {
     refreshBtn.style.display = "none";
     if (lifeCount == 0) {
-        refreshBtn.style.display = "none";
         await new Promise(r =>
             setTimeout(r, 1000));
         document.getElementById("next").style.display = "block";
@@ -219,7 +220,7 @@ function counter(value) {
         const nextValue = --value;
 
         if (nextValue === 0) {
-            //TODO:FOTO DIAGRAM CHANGE HERE
+
             wrapper.style.display = "block";
             shuffleCard();
             clearInterval(intervalID);

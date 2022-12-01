@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-html {
-    height: 100%;
-}
 
 body {
     position: relative;
@@ -229,7 +226,7 @@ body {
 }
 
 #centerBoard {
-    height: 100%;
+    padding-top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;

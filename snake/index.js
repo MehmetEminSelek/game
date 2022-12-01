@@ -22,12 +22,12 @@ const snakeColorLight = "#0d5415";
 const snakeColorDark = "#08300d";
 const snakeBorder = "black";
 const foodColor = "#ecb428";
-const unitSize = 20;
+const unitSize = 25;
 const timeArray = [];
 const base_url = "https://wafer-backend.com:443";
 //const base_url = "http://localhost:443";
 let running = false;
-let xVelocity = 0;
+let xVelocity = 15;
 let yVelocity = 0;
 let foodX;
 let foodY;
@@ -96,7 +96,7 @@ async function waiting (){
     document.getElementById("wait").style.display = "block";
     //TODO
     await new Promise(r => 
-        setTimeout(r, 120000));
+        setTimeout(r, 120));
     document.getElementById("wait").style.display = "none";
     document.getElementById("gameContainer").style.display = "block";
 }

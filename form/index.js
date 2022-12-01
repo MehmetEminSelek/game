@@ -47,11 +47,9 @@ async function download() {
     var questionNames = [];
     var answers = [];
     var formData = {};
-    try {
-        var subjectID = document.getElementById("textBox").value;
-    } catch (error) {
-        swal("Inserisci il tuo codice!", subjectID, "error");
-        throw error
+    if (subjectID == "") {
+        swal("Inserisci il numero identificativo!", subjectID, "error");
+        return;
     }
 
 
@@ -94,18 +92,14 @@ async function sendToServer() {
     var answers = [];
     var formData = {};
     var subjectID = document.getElementById("textBox").value;
-    if (subjectID = "") {
-        swal("Inserisci il tuo codice!", subjectID, "error");
+    if (subjectID == "") {
+        swal("Inserisci il numero identificativo!", subjectID, "error");
         return;
     }
     if (document.getElementById('card').checked == true) {
         surveyName = "card";
     } else if (document.getElementById('snake').checked == true) {
         surveyName = "snake";
-    }
-    else if (document.getElementById('card').checked == false && document.getElementById('snake').checked == false) {
-        swal("Please select a game!", "", "error");
-        return;
     }
 
     for (let i = 1; i < 21; i++) {

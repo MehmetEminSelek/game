@@ -119,7 +119,7 @@ async function matchCards(img1, img2) {
             });
             lifeCount--;
             sendValues("engine", "stop");
-            checkLife();
+            await checkLife();
             toggleBackgroundColor(moment);
             document.getElementById("refresh").style.display = "block";
             experimentNo++;
@@ -183,11 +183,13 @@ nextBtn.addEventListener("click", function () {
 async function checkLife() {
     refreshBtn.style.display = "none";
     if (lifeCount == 0) {
+        refreshBtn.style.display = "none";
         await new Promise(r =>
-            setTimeout(r, 1000));
+            setTimeout(r, 2000));
         document.getElementById("next").style.display = "block";
     }
     else {
+        refreshBtn.style.display = "none";
         await new Promise(r =>
             setTimeout(r, 2000));
         refreshBtn.style.display = "inline-block";

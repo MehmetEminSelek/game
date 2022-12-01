@@ -47,7 +47,13 @@ async function download() {
     var questionNames = [];
     var answers = [];
     var formData = {};
-    var subjectID = document.getElementById("textBox").value;
+    try {
+        var subjectID = document.getElementById("textBox").value;
+    } catch (error) {
+        swal("Inserisci il tuo codice!", subjectID, "error");
+        throw error
+    }
+
 
     for (let i = 1; i < 16; i++) {
 
@@ -88,10 +94,18 @@ async function sendToServer() {
     var answers = [];
     var formData = {};
     var subjectID = document.getElementById("textBox").value;
+    if (subjectID = "") {
+        swal("Inserisci il tuo codice!", subjectID, "error");
+        return;
+    }
     if (document.getElementById('card').checked == true) {
         surveyName = "card";
     } else if (document.getElementById('snake').checked == true) {
         surveyName = "snake";
+    }
+    else if (document.getElementById('card').checked == false && document.getElementById('snake').checked == false) {
+        swal("Please select a game!", "", "error");
+        return;
     }
 
     for (let i = 1; i < 21; i++) {
@@ -111,7 +125,7 @@ async function sendToServer() {
 
         questionNames.push(questionObjectName.toLowerCase());
         answers.push(questionAnswer);
-        
+
     }
     if (surveyName == "") {
         surveyName = "firstSurvey";
@@ -124,8 +138,8 @@ async function sendToServer() {
 
         formData[questionNames[index]] = answers[index];
     }
-       
-    
+
+
     if (formData.length != 0) {
         document.getElementById('submitButton').style.display = "none";
         document.getElementById('board').style.display = "none";

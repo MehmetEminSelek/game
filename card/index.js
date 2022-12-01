@@ -11,8 +11,8 @@ const shownCards = cardBoard.querySelectorAll("li");
 var moment = false;
 
 
-//TODO:CHANGE TO 30
-let maxTime = 30;
+//TODO:CHANGE TO 35
+let maxTime = 35;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -54,12 +54,12 @@ function toggleBackgroundColor(moment) {
     }
 }
 
-async function waiting (){
+async function waiting() {
     wrapper.style.display = "none";
     gameContainer.style.display = "none";
-    await new Promise(r => 
+    await new Promise(r =>
         //TODO change to 120000
-        setTimeout(r, 120000));
+        setTimeout(r, 120));
     gameContainer.style.display = "inline-block";
 }
 
@@ -112,14 +112,16 @@ async function matchCards(img1, img2) {
         matchedCard++;
         await sendValues("data", "success + " + matchedCard + "");
         if (matchedCard == 6 && timeLeft > 0) {
+            moment = false;
             await sendValues("data", "finished + " + (maxTime - timeLeft) + "SEC");
             shownCards.forEach(card => {
                 card.style.display = "none";
             });
             lifeCount--;
             sendValues("engine", "stop");
-            checkLife();   
-            document.getElementById("refresh").style.display = "block";    
+            checkLife();
+            toggleBackgroundColor(moment);
+            document.getElementById("refresh").style.display = "block";
             experimentNo++;
             return clearInterval(timer);
         }

@@ -117,7 +117,7 @@ async function gameWait(seconds) {
         setTimeout(r, seconds * (0.75)));
     sendValues("engine", "start");
     await new Promise(r =>
-        setTimeout(r, seconds / 4));
+        setTimeout(r, seconds / 6));
 }
 
 

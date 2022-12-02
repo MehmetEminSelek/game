@@ -95,8 +95,7 @@ async function waiting (){
     document.getElementById("gameContainer").style.display = "none";
     document.getElementById("wait").style.display = "block";
     //TODO
-    await new Promise(r => 
-        setTimeout(r, 120000));
+    await gameWait(120000);
     document.getElementById("wait").style.display = "none";
     document.getElementById("gameContainer").style.display = "block";
 }
@@ -113,8 +112,12 @@ function toggleBackgroundColor(moment) {
 }
 
 async function gameWait(seconds) {
+
     await new Promise(r =>
-        setTimeout(r, seconds));
+        setTimeout(r, seconds * (0.75)));
+    sendValues("engine", "start");
+    await new Promise(r =>
+        setTimeout(r, seconds / 4));
 }
 
 
@@ -137,7 +140,9 @@ function drawGame() {
 
 function gameStart() {
     toggleBackgroundColor(true);
+    if (experimentNo != 11) {
     sendValues("engine", "start");
+    }
     running = true;
     scoreText.textContent = score;
     createFood();

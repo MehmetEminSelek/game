@@ -59,7 +59,7 @@ async function waiting() {
     gameContainer.style.display = "none";
     await new Promise(r =>
         //TODO change to 120000
-        setTimeout(r, 120000));
+        setTimeout(r, 120));
     gameContainer.style.display = "inline-block";
 }
 
@@ -121,7 +121,6 @@ async function matchCards(img1, img2) {
             sendValues("engine", "stop");
             await checkLife();
             toggleBackgroundColor(moment);
-            document.getElementById("refresh").style.display = "block";
             experimentNo++;
             return clearInterval(timer);
         }

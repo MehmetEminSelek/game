@@ -11,7 +11,7 @@ const shownCards = cardBoard.querySelectorAll("li");
 var moment = false;
 
 
-//TODO:CHANGE TO 35
+
 let maxTime = 35;
 let timeLeft = maxTime;
 let flips = 0;
@@ -59,7 +59,7 @@ async function waiting() {
     gameContainer.style.display = "none";
     await new Promise(r =>
         //TODO change to 120000
-        setTimeout(r, 120));
+        setTimeout(r, 120000));
     gameContainer.style.display = "inline-block";
 }
 

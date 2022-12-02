@@ -41,8 +41,6 @@ function toLastSurvey() {
 
 }
 
-
-
 async function download() {
     var questionNames = [];
     var answers = [];

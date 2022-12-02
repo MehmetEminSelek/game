@@ -34,11 +34,69 @@ body {
 }
 
 .select {
+    -webkit-animation: breathing 5s ease-out infinite normal;
+        animation: breathing 5s ease-out infinite normal;
+        -webkit-font-smoothing: antialiased;
     text-align: center;
     padding: 15px;
     font-size: 20px;
     font-weight: bold;
-    transition: all 3s ease;
+    transition: all 1s ease;
+    }
+    
+    
+    @-webkit-keyframes breathing {
+        0% {
+            background-color: white;
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+        }
+    
+        25% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    
+        60% {
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+        }
+    
+        100% {
+            background-color: #ffbe0b;
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+        }
+    }
+    
+    @keyframes breathing {
+        0% {
+            background-color: #ffbe0b;
+            -webkit-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            transform: scale(0.9);
+        }
+    
+        25% {
+            background-color: white;
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+    
+        60% {
+            background-color: white;
+            -webkit-transform: scale(0.7);
+            -ms-transform: scale(0.9);
+            transform: scale(0.9);
+        }
+    
+        100% {
+            background-color: #ffbe0b;
+            -webkit-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            transform: scale(0.9);
+        }
 }
 
 .select:hover {
@@ -54,6 +112,7 @@ body {
     justify-content: space-between;
 
 }
+
 
 .answer {
     min-width: 100%;

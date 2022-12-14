@@ -139,8 +139,12 @@ async function download() {
         questionNames.push("q" + i);
         answers.push(questionAnswer);
     }
-
     formData = { "code": subjectID };
+    for (let index = 0; index < questionNames.length; index++) {
+
+        formData[questionNames[index]] = answers[index];
+    }
+
 
     if (formData.length != 0) {
         document.getElementById('submitButton').style.display = "none";

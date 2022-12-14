@@ -288,6 +288,27 @@ span {
     border: 2px solid #ffbe0b;
     transition: 0.3s ease;
 }
+#refresh {
+    -webkit-animation: fadeOut 3s ease-out normal;
+    cursor: pointer;
+    font-size: 14px;
+    color: black;
+    border-radius: 4px;
+    padding: 4px 11px;
+    background: #fff;
+    border: 2px solid #ffbe0b;
+
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
 
 .details button:hover {
     color: #fff;

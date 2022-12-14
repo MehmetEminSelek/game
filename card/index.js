@@ -74,6 +74,7 @@ function initTimer() {
         lifeCount--;
         sendValues("engine", "stop");
         checkLife();
+        sendValues("data", "gameOver");
         document.getElementById("hit").style.display = "block";
         document.getElementById("hit").innerHTML = "HIT THE RIPROVE TO RESTART";
         experimentNo++;
@@ -119,7 +120,8 @@ async function matchCards(img1, img2) {
             });
             lifeCount--;
             sendValues("engine", "stop");
-            await checkLife();
+            clearInterval(timer);
+            checkLife();
             toggleBackgroundColor(moment);
             experimentNo++;
             return clearInterval(timer);

@@ -95,7 +95,7 @@ async function waiting (){
     document.getElementById("gameContainer").style.display = "none";
     document.getElementById("wait").style.display = "block";
     //TODO
-    await gameWait(120000);
+    await gameWait(1200);
     document.getElementById("wait").style.display = "none";
     document.getElementById("gameContainer").style.display = "block";
 }
@@ -112,7 +112,6 @@ function toggleBackgroundColor(moment) {
 }
 
 async function gameWait(seconds) {
-
     await new Promise(r =>
         setTimeout(r, seconds * (0.75)));
     sendValues("engine", "start");

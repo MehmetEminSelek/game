@@ -61,7 +61,7 @@ async function sendToServer() {
         var groupName = "input[name=group" + i + "]:checked";
         var questionField = document.getElementById("group" + i + "");
         var questionName = questionField.getElementsByTagName("a");
-        var questionObjectName = questionName[0].innerHTML;
+        var questionObjectName = questionName[0].value;
         try {
             var questionAnswer = document.querySelector(groupName).value;
         } catch (error) {

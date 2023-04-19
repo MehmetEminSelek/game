@@ -95,7 +95,7 @@ async function waiting (){
     document.getElementById("gameContainer").style.display = "none";
     document.getElementById("wait").style.display = "block";
     //TODO
-    await gameWait(120000);
+    await gameWait(60000);
     document.getElementById("wait").style.display = "none";
     document.getElementById("gameContainer").style.display = "block";
 }

@@ -59,7 +59,7 @@ async function waiting() {
     gameContainer.style.display = "none";
     await new Promise(r =>
         //TODO change to 120000
-        setTimeout(r, 120000));
+        setTimeout(r, 60000));
     gameContainer.style.display = "inline-block";
 }
 

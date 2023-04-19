@@ -76,7 +76,7 @@ function initTimer() {
         checkLife();
         sendValues("data", "gameOver");
         document.getElementById("hit").style.display = "block";
-        document.getElementById("hit").innerHTML = "HIT THE RIPROVE TO RESTART";
+        document.getElementById("hit").innerHTML = "다시 시도 하려면 '다시 시도'를 클릭하세요.";
         experimentNo++;
         return clearInterval(timer);
     }

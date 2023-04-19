@@ -47,7 +47,7 @@ async function sendToServer() {
     var formData = {};
     var subjectID = document.getElementById("textBox").value;
     if (subjectID == "") {
-        swal("Inserisci il numero identificativo!", subjectID, "error");
+        swal("ID 번호를 입력하세요!", subjectID, "error");
         return;
     }
     if (document.getElementById('card').checked == true) {
@@ -65,7 +65,7 @@ async function sendToServer() {
         try {
             var questionAnswer = document.querySelector(groupName).value;
         } catch (error) {
-            swal("Si prega di rispondere a tutte le domande!", questionObjectName, "error");
+            swal("모든 질문에 답해 주세요!", questionObjectName, "error");
             return;
         }
         console.log(questionAnswer);
@@ -119,7 +119,7 @@ async function download() {
     var formData = {};
     var subjectID = document.getElementById("textBox").value;
     if (subjectID == "") {
-        swal("Inserisci il numero identificativo!", subjectID, "error");
+        swal("ID 번호를 입력하세요!", subjectID, "error");
         return;
     }
 
@@ -133,7 +133,7 @@ async function download() {
         try {
             var questionAnswer = document.querySelector(groupName).value;
         } catch (error) {
-            swal("Si prega di rispondere a tutte le domande!", questionObjectName, "error");
+            swal("모든 질문에 답해 주세요!", questionObjectName, "error");
             throw error
         }
         questionNames.push("q" + i);
